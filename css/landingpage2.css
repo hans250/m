@@ -929,7 +929,7 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 .calc-list-ul .tit-auto{ width:auto;}
 .calc-list-ul .value-box{ float:right; width:60%; text-align:right;}
 .calc-list-ul .value-box b{ font-weight:400;}
-.hide-select-box{ position:relative; float:left; width:50%; height:20px; line-height:20px; overflow:hidden; margin-top:10px;}
+.hide-select-box{ position:relative; float:left; width:70%; height:20px; line-height:20px; overflow:hidden; margin-top:10px;}
 .hide-select-inside{ position:absolute; left:0; top:0; display:block; width:120%;}
 .hide-select-box select{ width:100%; background:transparent; border:none; font-size:1em; color:#666; margin:0; line-height:14px;}
 .value-box .hide-select-box{ float:right; direction:rtl;}

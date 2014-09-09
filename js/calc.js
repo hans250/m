@@ -3,9 +3,11 @@
 //初始css相关
 $(function(){
     //absolute块赋予高度
-    $(".calc-blks").css("height",$(".calc-blk").height());
+    $(".calc-blks").css("height",($(".calc-blk").eq(1).height() ));
+    console.log($(".calc-blk").eq(0).height())
     //4等分元素屏幕宽度
     $(".calc-blk").css("width",$(document).width());
+//    $(".cash").text("待定");
 });
 
 //找到nav数组赋予点击功能
@@ -261,7 +263,6 @@ $(function(){
         var sfValue2 = $("#csj2").val();
         var byhfValue2 = parseFloat($("#gzs2").text()) + parseFloat($("#spfw2").val());
 
-
         //文案类别变更
         function tabSelect(){
             if($("#j-stage1-tab").find("li").eq(0).hasClass("cur")){
@@ -269,12 +270,17 @@ $(function(){
                 var firstValue = parseFloat(sfValue) + parseFloat(byhfValue);
                 $("#stage1-all-val").text(firstValue);
                 $("#j-calc-nav-val1").text(firstValue);
+                $("#j-settle-box-ul3").find(".daikuan").css("display","block");
+                //首付合计
+                $("#s4-all").text(parseFloat($("#s4-csj").text()) + parseFloat($("#s4-gzs").text()) + parseFloat($("#s4-jrfwf").text()) + parseFloat($("#s4-spfwf").text()) + parseFloat($("#s4-dyfwf").text()) + parseFloat($("#s4-bxje").text()));
             }else{
                 $("#stage1-p").html("全款购车，车身价" + $("#csj2").val() + "元 + 必要花费" + $("#settle-byhf2").text() + "元");
                 var firstValue2 = parseFloat(sfValue2) + parseFloat(byhfValue2);
                 $("#stage1-all-val").text(firstValue2);
                 $("#j-calc-nav-val1").text(firstValue2);
-                $("#j-settle-box-ul3").find(".daikuan").remove();
+                $("#j-settle-box-ul3").find(".daikuan").css("display","none");
+                //首付合计
+                $("#s4-all").text(parseFloat($("#s4-csj").text()) + parseFloat($("#s4-gzs").text()) + parseFloat($("#s4-spfwf").text()) + parseFloat($("#s4-bxje").text()));
             };
         };
         tabSelect();
@@ -335,8 +341,6 @@ $(function(){
 
 //        console.log(parseFloat($("#dszzrx-val").attr("data-value")) +"_"+ parseFloat($("#clssx-val").attr("data-value")) +"_"+ parseFloat($("#qcdqx-val").attr("data-value")) +"_"+ parseFloat($("#sjzwzrx-val").attr("data-value")) +"_"+ parseFloat($("#ckzwzrx-val").attr("data-value")) +"_"+ parseFloat($("#bjmpx-val").attr("data-value")))
 
-//        console.log( parseFloat($("#zrssx-val").attr("data-value")) +"_"+ parseFloat($("#blddpsx-val").attr("data-value")) +"_"+ parseFloat($("#cshhssx-val").attr("data-value")) +"_"+ parseFloat($("#ssxsssx-val").attr("data-value")) +"_"+ parseFloat($("#zdzxc-val").attr("data-value")) +"_"+ parseFloat($("#bjmpx2-val").attr("data-value")))
-
         //第四屏
         $("#to-stage1-p").text($("#stage1-p").text() + "。首付" + $("#stage1-all-val").text() + "元。");
         $("#s4-jqx-val").text($("#jqx-val").text());
@@ -354,7 +358,11 @@ $(function(){
         //保险金额
         $("#s4-bxje").text($("#stage2-all-val").text());
         //首付合计
-        $("#s4-all").text(parseFloat($("#s4-csj").text()) + parseFloat($("#s4-gzs").text()) + parseFloat($("#s4-jrfwf").text()) + parseFloat($("#s4-spfwf").text()) + parseFloat($("#s4-dyfwf").text()) + parseFloat($("#s4-bxje").text()));
+        if($("#j-stage1-tab").find("li").eq(0).hasClass("cur")){
+            $("#s4-all").text(parseFloat($("#s4-csj").text()) + parseFloat($("#s4-gzs").text()) + parseFloat($("#s4-jrfwf").text()) + parseFloat($("#s4-spfwf").text()) + parseFloat($("#s4-dyfwf").text()) + parseFloat($("#s4-bxje").text()));
+        }else{
+            $("#s4-all").text(parseFloat($("#s4-csj").text()) + parseFloat($("#s4-gzs").text()) + parseFloat($("#s4-spfwf").text()) + parseFloat($("#s4-bxje").text()));
+        };
         $("#j-calc-nav-val4").text($("#s4-all").text());
     };
 
@@ -385,6 +393,7 @@ $(function(){
         taxTmp[1] = $("#sjzwzrx-val").text();
         taxTmp[2] = $("#qcdqx-val").text();
     };
+
 
 
 });
@@ -428,450 +437,3 @@ $.extend({
 $(function() {
     $.bankSelect($("#xzyh"),$("#yg"),$("#lxzffs"));
 });
-
-//$(".label4sel").select(function(){
-//    $("select").find(".change").click();
-//});
-/*$(".label4sel").click(function(){
-    $(this).find(".change").trigger("click")
-});*/
-/*$(".label4sel").find(".change").click(function(){
-    alert('3')
-})*/
-
-
-
-/*function addClass1(element,value){
-    if(!element.className){
-        element.className = value;
-    }else{
-        newClassName = element.className;
-        newClassName += " ";
-        newClassName += value;
-        element.className =newClassName;
-    };
-};
-function removeClass2(ele,className){
-    var tmpClassName = ele.className;
-    ele.className = null;
-    ele.className = tmpClassName.split(new RegExp(" " + className + "|" + className + " " + "|" + "^" + className + "$","ig")).join("");
-};
-function cleanWhitespace(oEelement)
-{
-    for(var i=0;i<oEelement.childNodes.length;i++){
-        var node=oEelement.childNodes[i];
-        if(node.nodeType==3 && !/\S/.test(node.nodeValue)){node.parentNode.removeChild(node)}
-    }
-};
-var calcBox = document.getElementsByClassName("calc-box")[0];
-cleanWhitespace(calcBox);
-var calcUl = document.getElementsByClassName("calc-ul")[0];
-var calcSub = calcUl.getElementsByTagName("li");
-for(i = 0; i < calcSub.length; i++){
-    (function(n){
-        calcSub[i].onclick = function(){
-            if(n == 0){
-                var tp = this.parentNode.nextSibling.children[0];
-                addClass1(tp,"calc-area1");
-                removeClass2(tp,"calc-area2");
-                removeClass2(tp,"calc-area3");
-                removeClass2(tp,"calc-area4");
-            }else if(n == 1){
-                var tp = this.parentNode.nextSibling.children[0];
-                addClass1(tp,"calc-area2");
-                removeClass2(tp,"calc-area1");
-                removeClass2(tp,"calc-area3");
-                removeClass2(tp,"calc-area4");
-            }else if(n == 2){
-                var tp = this.parentNode.nextSibling.children[0];
-                addClass1(tp,"calc-area3");
-                removeClass2(tp,"calc-area1");
-                removeClass2(tp,"calc-area2");
-                removeClass2(tp,"calc-area4");
-            }else if(n == 3){
-                var tp = this.parentNode.nextSibling.children[0];
-                addClass1(tp,"calc-area4");
-                removeClass2(tp,"calc-area2");
-                removeClass2(tp,"calc-area3");
-                removeClass2(tp,"calc-area1");
-            }
-        };
-    })(i);
-}*/
-
-var txtCarPrice = $("#txtCarPrice"), spanTotalTop = $("#spanTotalTop"), hidTotal = $("#hidTotal"), spanTax = $("#spanTax"), txtPurchaseTax = $("#txtPurchaseTax"), txtLicenseTax = $("#txtLicenseTax"), rdDisplacement10 = $("#rdDisplacement10"), rdDisplacement16 = $("#rdDisplacement16"), rdDisplacement20 = $("#rdDisplacement20"), rdDisplacement25 = $("#rdDisplacement25"), rdDisplacement30 = $("#rdDisplacement30"), rdDisplacement40 = $("#rdDisplacement40"), rdDisplacement40s = $("#rdDisplacement40s"), txtUsageTax = $("#txtUsageTax"), rdSeatCount6 = $("#rdSeatCount6"), rdSeatCount6s = $("#rdSeatCount6s"), txtTrafficInsurance = $("#txtTrafficInsurance"), spanCommerceTotal = $("#spanCommerceTotal"), rdThirdInsureClaim5 = $("#rdThirdInsureClaim5"), rdThirdInsureClaim10 = $("#rdThirdInsureClaim10"), rdThirdInsureClaim20 = $("#rdThirdInsureClaim20"), rdThirdInsureClaim50 = $("#rdThirdInsureClaim50"), rdThirdInsureClaim100 = $("#rdThirdInsureClaim100"), txtThirdInsurance = $("#txtThirdInsurance"), txtDamageInsurance = $("#txtDamageInsurance"), txtStolenInsurance = $("#txtStolenInsurance"), rdImport0 = $("#rdImport0"), rdImport1 = $("#rdImport1"), txtGlassInsurance = $("#txtGlassInsurance"), txtCombustInsurance = $("#txtCombustInsurance"), txtNoDeductibleInsurance = $("#txtNoDeductibleInsurance"), txtNoLiabilityInsurance = $("#txtNoLiabilityInsurance"), txtPassengerInsurance = $("#txtPassengerInsurance"), rdCarBodyInsure2000 = $("#rdCarBodyInsure2000"), rdCarBodyInsure5000 = $("#rdCarBodyInsure5000"), rdCarBodyInsure10000 = $("#rdCarBodyInsure10000"), rdCarBodyInsure20000 = $("#rdCarBodyInsure20000"), txtCarBodyInsurance = $("#txtCarBodyInsurance"), spanTotalBottom = $("#spanTotalBottom");
-
-function specChange(data) {
-
-    var price = data.MinPrice, displacement = carCostParseFloat(data.Displacement), isImport = data.Isimport == "进口" ? 1
-        : 0, seatCount = data.StructureSeat;
-
-    if (displacement <= 1.0) {
-        rdDisplacement10.attr("checked", true);
-    } else if (displacement > 1.0 && displacement <= 1.6) {
-
-        rdDisplacement16.attr("checked", true);
-    } else if (displacement > 1.6 && displacement <= 2.0) {
-
-        rdDisplacement20.attr("checked", true);
-    } else if (displacement > 2.0 && displacement <= 2.5) {
-
-        rdDisplacement25.attr("checked", true);
-    } else if (displacement > 2.5 && displacement <= 3.0) {
-
-        rdDisplacement30.attr("checked", true);
-    } else if (displacement > 3.0 && displacement <= 4.0) {
-
-        rdDisplacement40.attr("checked", true);
-    } else if (displacement > 4.0) {
-
-        rdDisplacement40s.attr("checked", true);
-    }
-
-    $("input[name='rdImport'][value='" + isImport + "']").attr("checked",
-        true);
-    if (seatCount < 6) {
-        rdSeatCount6.attr("checked", true);
-    } else {
-        rdSeatCount6s.attr("checked", true);
-    }
-
-}
-
-(function() {
-
-    var carCostManager = (function() {
-        var _carCostManager = {};
-
-        var carCostParam = {
-            reSetCustom : true,
-            // 购车价格
-            carPrice : 0,
-            // 首付自定义
-            prepaymentCustom : 0,
-            // 首付比例
-            prepaymentPercent : 0.3,
-            // 还款年限
-            loanYears : 3,
-            // 自定义上牌费用
-            licenseTaxCustom : 0,
-            // 自定义车船使用税
-            usageTaxCustom : 0,
-            // 排量
-            displacement : 1.6,
-            // 座位数
-            seatCount : 5,
-            // 是否进口车
-            isImport : 0,
-            // 第三者责任险 赔付额度
-            thirdInsureClaim : 100000,
-            // 自定义车上人员责任险
-            passengerInsureCustom : 0,
-            // 车身划痕险 赔付额度
-            carBodyInsureClaim : 5000,
-            // 是否勾选
-            CommInsureCheck : {
-                // 第三者责任险
-                thirdCheck : true,
-                // 车辆损失险
-                damageCheck : true,
-                // 全车盗抢险
-                stolenCheck : true,
-                // 玻璃单独破碎险
-                glassCheck : true,
-                // 自燃损失险
-                combustCheck : true,
-                // 不计免赔特约险
-                noDeductibleCheck : true,
-                // 无过责任险
-                noLiabilityCheck : true,
-                // 车上人员责任险
-                passengerCheck : true,
-                // 车身划痕险
-                carBodyCheck : true
-            }
-        };
-
-        var getCarCostParam = function() {
-            // if (txtPassengerInsurance.val() === "") {
-            // txtPassengerInsurance.val("50");
-            // }
-            carCostParam.carPrice = carCostParseFloat(carCostParseFloat(txtCarPrice
-                .val()));
-            carCostParam.licenseTaxCustom = carCostParseFloat(txtLicenseTax
-                .val());
-            carCostParam.usageTaxCustom = carCostParseFloat(txtUsageTax.val());
-            carCostParam.displacement = carCostParseFloat($(
-                "input[name='rdDisplacement']:checked").val());
-
-            carCostParam.seatCount = carCostParseFloat($(
-                "input[name='rdSeatCount']:checked").val());
-
-            carCostParam.isImport = carCostParseFloat($(
-                "input[name='rdImport']:checked").val());
-
-            carCostParam.thirdInsureClaim = carCostParseFloat($(
-                "input[name='rdThirdInsureClaim']:checked").val());
-
-            carCostParam.passengerInsureCustom = carCostParseFloat(parseFloat(txtPassengerInsurance
-                .val()));
-            carCostParam.carBodyInsureClaim = carCostParseFloat($(
-                "input[name='rdCarBodyInsure']:checked").val());
-
-            carCostParam.CommInsureCheck.thirdCheck = $("#cbThirdCheck")
-                .attr("checked");
-            carCostParam.CommInsureCheck.damageCheck = $("#cbDamageCheck")
-                .attr("checked");
-            carCostParam.CommInsureCheck.stolenCheck = $("#cbStolenCheck")
-                .attr("checked");
-            carCostParam.CommInsureCheck.glassCheck = $("#cbGlassCheck")
-                .attr("checked");
-            carCostParam.CommInsureCheck.combustCheck = $(
-                "#cbCombustCheck").attr("checked");
-            carCostParam.CommInsureCheck.noDeductibleCheck = $(
-                "#cbNoDeductibleCheck").attr("checked");
-            carCostParam.CommInsureCheck.noLiabilityCheck = $(
-                "#cbNoLiabilityCheck").attr("checked");
-            carCostParam.CommInsureCheck.passengerCheck = $(
-                "#cbPassengerCheck").attr("checked");
-            carCostParam.CommInsureCheck.carBodyCheck = $(
-                "#cbCarBodyCheck").attr("checked");
-            return carCostParam;
-
-        };
-
-        _carCostManager.reSetCustom = function() {
-            carCostParam.reSetCustom = true;
-        }
-
-        _carCostManager.refreshFee = function() {
-
-            carCostParam = getCarCostParam();
-            var carPurchaseCost = new CarPurchaseCost();
-            carCostParam.carPrice = parseFloat(carCostParseFloat(txtCarPrice
-                .val()));
-
-            if (carCostParam.carPrice <= 0) {
-                _carCostManager.reset();
-
-                return;
-            }
-
-            $("#divTopNoSelect").hide();
-            $("#divTopTotal").show();
-            $("#divTopTotalTip").show();
-
-            var carPurchaseFee = carPurchaseCost
-                .getCarPurchaseCost(carCostParam);
-
-            spanTotalTop.html(formatNum(carPurchaseFee.getTotal(), 0));
-            hidTotal.val(carPurchaseFee.getTotal());
-            spanTax.html(carPurchaseFee.getTotalTax() == 0 ? "小计：0元" : "小计："
-                + formatNum(carPurchaseFee.getTotalTax(), 0) + "元");
-            txtPurchaseTax
-                .val(carPurchaseFee.carPurchaseTax.purchaseTax == 0 ? ""
-                    : carPurchaseFee.carPurchaseTax.purchaseTax);
-            txtLicenseTax
-                .val(carPurchaseFee.carPurchaseTax.licenseTax == 0 ? ""
-                    : carPurchaseFee.carPurchaseTax.licenseTax);
-            txtUsageTax.val(carPurchaseFee.carPurchaseTax.usageTax == 0 ? ""
-                : carPurchaseFee.carPurchaseTax.usageTax);
-            txtTrafficInsurance
-                .val(carPurchaseFee.carInsurance.trafficInsurance == 0 ? ""
-                    : carPurchaseFee.carInsurance.trafficInsurance);
-            spanCommerceTotal
-                .html(carPurchaseFee.getCommerceInsurance() == 0 ? "商业保险小计：0元"
-                    : "商业保险小计："
-                    + formatNum(carPurchaseFee
-                        .getCommerceInsurance(), 0) + "元");
-            txtThirdInsurance
-                .val(carPurchaseFee.carInsurance.thirdInsurance == 0 ? ""
-                    : carPurchaseFee.carInsurance.thirdInsurance);
-            txtDamageInsurance
-                .val(carPurchaseFee.carInsurance.damageInsurance == 0 ? ""
-                    : carPurchaseFee.carInsurance.damageInsurance);
-            txtStolenInsurance
-                .val(carPurchaseFee.carInsurance.stolenInsurance == 0 ? ""
-                    : carPurchaseFee.carInsurance.stolenInsurance);
-            txtGlassInsurance
-                .val(carPurchaseFee.carInsurance.glassInsurance == 0 ? ""
-                    : carPurchaseFee.carInsurance.glassInsurance);
-            txtCombustInsurance
-                .val(carPurchaseFee.carInsurance.combustInsurance == 0 ? ""
-                    : carPurchaseFee.carInsurance.combustInsurance);
-            txtNoDeductibleInsurance
-                .val(carPurchaseFee.carInsurance.noDeductibleInsurance == 0 ? ""
-                    : carPurchaseFee.carInsurance.noDeductibleInsurance);
-            txtNoLiabilityInsurance
-                .val(carPurchaseFee.carInsurance.noLiabilityInsurance == 0 ? ""
-                    : carPurchaseFee.carInsurance.noLiabilityInsurance);
-            txtPassengerInsurance
-                .val(carPurchaseFee.carInsurance.passengerInsurance == 0 ? ""
-                    : carPurchaseFee.carInsurance.passengerInsurance);
-            txtCarBodyInsurance
-                .val(carPurchaseFee.carInsurance.carBodyInsurance == 0 ? ""
-                    : carPurchaseFee.carInsurance.carBodyInsurance);
-            spanTotalBottom.html(carPurchaseFee.getTotal() == 0 ? "0"
-                : formatNum(carPurchaseFee.getTotal(), 0));
-            carCostParam.reSetCustom = false;
-        }
-
-        _carCostManager.reset = function() {
-            $("#divTopNoSelect").show();
-            $("#divTopTotal").hide();
-            $("#divTopTotalTip").hide();
-            spanTotalTop.html("0");
-            hidTotal.val("0");
-            spanTax.html("小计：0元");
-            txtPurchaseTax.val("0");
-            txtLicenseTax.val("0");
-            txtUsageTax.val("0");
-            txtTrafficInsurance.val("0");
-            spanCommerceTotal.html("商业保险小计：0元");
-            txtThirdInsurance.val("0");
-            txtDamageInsurance.val("0");
-            txtStolenInsurance.val("0");
-            txtGlassInsurance.val("0");
-            txtCombustInsurance.val("0");
-            txtNoDeductibleInsurance.val("0");
-            txtNoLiabilityInsurance.val("0");
-            txtPassengerInsurance.val("0");
-            txtCarBodyInsurance.val("0");
-            spanTotalBottom.html("0");
-            redirect();
-        };
-        return _carCostManager;
-    })();
-
-    $.each([ "#txtCarPrice" ], function() {
-        $(this.toString()).bind("change", function(event) {
-            redirect();
-            if (!validate($(this).val())) {
-                $(this).val('');
-                carCostManager.reset();
-
-                return;
-            }
-            carCostManager.refreshFee();
-        });
-    });
-
-    $.each([ "#txtLicenseTax", "#txtUsageTax", "#txtPassengerInsurance" ],
-        function() {
-            $(this.toString()).bind("change", function(event) {
-                if (!validate($(this).val())) {
-                    $(this).val('');
-                    return;
-                }
-                carCostManager.refreshFee();
-            });
-        });
-
-    $.each([ "#txtCarPrice" ], function() {
-        $(this.toString()).bind("keyup", function(event) {
-            if (!validate($(this).val())) {
-                alert("请输入数字");
-                $(this).val('');
-                carCostManager.reset();
-                return;
-            }
-
-            carCostManager.refreshFee();
-        });
-    });
-
-    $.each([ "#txtLicenseTax", "#txtUsageTax", "#txtPassengerInsurance" ],
-        function() {
-            $(this.toString()).bind("keyup", function(event) {
-
-                if (!validate($(this).val())) {
-                    alert("请输入数字");
-                    $(this).val('');
-                    return;
-                }
-
-                carCostManager.refreshFee();
-
-            });
-        });
-
-    $("input[name='rdDisplacement']").bind(
-        "change",
-        function(event) {
-            var carPurchaseCost = new CarPurchaseCost();
-            var usageTax = carPurchaseCost
-                .getUsageTax(carCostParseFloat($(this).val()));
-            txtUsageTax.val(usageTax);
-            carCostManager.refreshFee();
-        });
-
-    $.each([ "input[name='rdSeatCount']",
-        "input[name='rdThirdInsureClaim']", "input[name='rdImport']",
-        "input[name='rdCarBodyInsure']" ], function() {
-        $(this.toString()).bind("change", function(event) {
-            carCostManager.refreshFee();
-        });
-    });
-
-    $.each([ "#cbStolenCheck", "#cbGlassCheck", "#cbCombustCheck",
-        "#cbNoDeductibleCheck", "#cbNoLiabilityCheck", "#cbPassengerCheck",
-        "#cbCarBodyCheck" ], function() {
-        $(this.toString()).bind("change", function(event) {
-            carCostManager.refreshFee();
-        });
-    });
-
-    $("#cbThirdCheck").bind(
-        "change",
-        function(event) {
-            if (!$(this).attr("checked")) {
-                $("#cbNoLiabilityCheck").attr("checked", false);
-                $("#cbNoDeductibleCheck").attr("disabled", true);
-                $("#cbNoLiabilityCheck").attr("disabled", true);
-            } else {
-                $("#cbNoLiabilityCheck").attr("disabled", false);
-            }
-
-            if ($(this).attr("checked")
-                && $("#cbDamageCheck").attr("checked")) {
-                $("#cbNoDeductibleCheck").attr("disabled", false);
-            } else {
-                $("#cbNoDeductibleCheck").attr("checked", false);
-                $("#cbNoDeductibleCheck").attr("disabled", true);
-            }
-
-            carCostManager.refreshFee();
-        });
-
-    $("#cbDamageCheck").bind(
-        "change",
-        function(event) {
-            if (!$(this).attr("checked")) {
-                $("#cbStolenCheck").attr("checked", false);
-                $("#cbCarBodyCheck").attr("checked", false);
-                $("#cbStolenCheck").attr("disabled", true);
-                $("#cbCarBodyCheck").attr("disabled", true);
-            } else {
-                $("#cbStolenCheck").attr("disabled", false);
-                $("#cbCarBodyCheck").attr("disabled", false);
-            }
-
-            if ($(this).attr("checked")
-                && $("#cbThirdCheck").attr("checked")) {
-                $("#cbNoDeductibleCheck").attr("disabled", false);
-            } else {
-                $("#cbNoDeductibleCheck").attr("checked", false);
-                $("#cbNoDeductibleCheck").attr("disabled", true);
-            }
-            carCostManager.refreshFee();
-        });
-
-    $(function() {
-        var val = $('#txtCarPrice').val();
-        if (val != null) {
-            txtCarPrice.val(val);
-            carCostManager.refreshFee();
-        }
-    });
-
-})();
