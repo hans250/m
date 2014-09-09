@@ -1,0 +1,47 @@
+<!--#include file="_topbar.html"-->
+<div class="counselor-bg">
+    <div class="tit"><strong>感谢您选择乾坤车城！</strong>乾坤车城为每位会员提供专属的购车顾问</div>
+    <ul class="counselor-bg-ul clearfix">
+        <li><a href="#">
+            <img src="http://115.29.184.142:81/weixin-image/files/20140116/1369042804704b39bb54205d05a76600/0_320x240" width="138" alt="" />
+            <span class="name">尼玛次仁</span>
+            <span class="btn">选我<i class="f-rarr"></i></span>
+        </a></li>
+        <li><a href="#">
+            <img src="http://115.29.184.142:81/weixin-image/files/20140116/1369042804704b39bb54205d05a76600/0_320x240" width="138" alt="" />
+            <span class="name">尼玛次仁</span>
+            <span class="btn">选我<i class="f-rarr"></i></span>
+        </a></li>
+        <li><a href="#">
+            <img src="http://115.29.184.142:81/weixin-image/files/20140116/1369042804704b39bb54205d05a76600/0_320x240" width="138" alt="" />
+            <span class="name">尼玛次仁</span>
+            <span class="btn">选我<i class="f-rarr"></i></span>
+        </a></li>
+        <li class="more"><a href="#">查看<br />更多顾问</a></li>
+    </ul>
+    <a href="#" class="counselor-bg-more">我不想选，自动为我推荐</a>
+</div>
+
+<!--#include file="_footer.html"-->
+<script src="js/idangerous.swiper-2.0.min.js"></script>
+<script>
+// 焦点图切换
+//头部幻灯片
+var mySwiperfocus = new Swiper('#j-slide-ver2-frame', {
+    pagination: '#j-slide-pgfocus',
+    loop: true,
+    autoplay: 5000,
+    paginationClickable: true
+});
+//底部推荐更多
+var mySwiperfocus = new Swiper('#j-more-box-list', {
+    pagination: '#j-more-box-points',
+    loop: true,
+    paginationClickable: true
+});
+//点击展开
+clkmore('#j-praise','praise-clk');
+clkmore2('.appearance-tab-inside','appearance-tab-clk');
+</script>
+</body>
+</html>

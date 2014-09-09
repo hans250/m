@@ -1,0 +1,50 @@
+<!--#include file="_header.html"-->
+<div class="tabcontent pgreg">
+	<ul class="tabli clearfix" id="j-tabli">
+		<li class="cur">还不是乾坤会员</li>
+		<li>乾坤会员登录</li>
+	</ul>
+	<div class="tabcon">
+		<section>
+			<p class="info">注册乾坤会员，买车直接享受底价优惠，还有更多会员专属VIP服务！</p>
+			<div class="errortips">用户名或者密码错误</div>
+            <input type="text" placeholder="手机号 / 用户名" value="" class="login-ipt">
+			<label for="nsername" class="error" style="display:block;">用户名不能为空！</label>
+			<input type="password" placeholder="输入密码" value="" class="login-ipt">
+			<label for="nsername" class="error">密码错误！</label>
+			<input type="password" placeholder="输入确认密码" value="" class="login-ipt">
+			<label for="nsername" class="error">密码错误！</label>
+			<button class="btn">立即注册</button>
+            <input type="submit" value="xxxxx" />
+		</section>
+		<section style="display:none">
+			<input type="text" placeholder="手机号 / 用户名" value="" class="login-ipt">
+			<label for="nsername" class="error" style="display:block;">用户名不能为空！</label>
+			<input type="password" placeholder="输入密码" value="" class="login-ipt">
+			<label for="nsername" class="error">密码错误！</label>
+			<button class="btn">登录</button>
+            <a href="find1.html" class="tofind">忘记密码？</a>
+		</section>
+	</div>
+    <div class="login-tdcode">
+        <img src="images/tdcode.png" width="80" />
+        <p><b>关注乾坤车城微信</b>扫描二维码或者微信公众号搜索“qkccwx”，获得最新资讯以及更多好礼！</p>
+    </div>
+</div>
+<!--#include file="_footer.html"-->
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/touch.js"></script>
+<script>
+$(function() {
+	$('#j-tabli > li').each(function(i){
+		$(this).click(function(){
+			$(this).addClass('cur');
+			$(this).siblings().removeClass('cur');
+			$(this).parents('.tabcontent').find('section').eq(i).show();
+			$(this).parents('.tabcontent').find('section').eq(i).siblings().hide();
+		});
+	});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!--#include file="_header.html"-->
+		<div class="tabcontent">
+			<ul class="tabli clearfix" id="j-tabli">
+				<li class="cur">我知道要买什么车</li>
+				<li>我不知道要买什么车</li>
+			</ul>
+			<div class="tabcon">
+				<section>
+					<dl>
+						<dt>基本信息</dt>
+						<dd class="nobg clearfix">
+							<span class="tit">姓名</span>
+							<input type="text" class="txt" placeholder="xxx" value="" />
+							<label for="realName" class="error">姓名不能为空！</label>
+						</dd>
+						<dd class="clearfix">
+							<span class="tit">购车预算</span>
+							<select dir="rtl">
+								<option>购车预算</option>
+								<option>5元</option>
+							</select>
+							<label for="budget" class="error">请选择购车预算！</label>
+						</dd>
+						<dd class="mb30 clearfix">
+							<span class="tit">购车时间</span>
+							<select dir="rtl">
+								<option>购车时间</option>
+								<option>5元</option>
+							</select>
+							<label for="budget" class="error">error</label>
+						</dd>
+					</dl>
+					<div class="note">您提供的个人信息将帮助我们与您联系，不会被用于其他用途。</div>
+					<dl class="cloneelem">
+						<dt>意向车型</dt>
+						<dd class="clearfix">
+							<span class="tit">品牌</span>
+							<select dir="rtl">
+								<option>品牌</option>
+								<option>lexus</option>
+							</select>
+							<label for="budget" class="error">error</label>
+						</dd>
+						<dd class="clearfix">
+							<span class="tit">车系</span>
+							<select dir="rtl">
+								<option>车系</option>
+								<option>lexus</option>
+							</select>
+							<label for="budget" class="error">error</label>
+						</dd>
+						<dd class="clearfix">
+							<span class="tit">车型</span>
+							<select dir="rtl">
+								<option>车型</option>
+								<option>lexus</option>
+							</select>
+							<label for="budget" class="error">error</label>
+						</dd>
+					</dl>
+                    <dl class="cloneelem">
+                        <dt>意向车型</dt>
+                        <dd class="sed clearfix">
+                            <span class="tit">品牌：</span>
+                            <span class="txt">思铭</span>
+                        </dd>
+                        <dd class="sed clearfix">
+                            <span class="tit">选择车系：</span>
+                            <span class="txt">思铭</span>
+                        </dd>
+                        <dd class="sed clearfix">
+                            <span class="tit">车型：</span>
+                            <span class="txt">思铭 思铭 2012款 1.8L 自动</span>
+                        </dd>
+                    </dl>
+					<div id="clonelib"></div>
+					<a href="#" class="more clearfix" id="j-more">
+						<i class="ico"></i>
+						<span>添加更多意向车型</span>
+						<b>More</b>
+					</a>
+					<button class="btn">提交</button>
+				</section>
+				<section style="display:none">
+					<dl>
+						<dt>基本信息</dt>
+						<dd class="nobg clearfix">
+							<span class="tit">姓名</span>
+							<input type="text" class="txt" placeholder="姓名" value="" style="direction:rtl;" />
+							<label for="realName" class="error">姓名不能为空！</label>
+						</dd>
+						<dd class="clearfix">
+							<span class="tit">购车预算</span>
+							<select dir="rtl">
+								<option>购车预算</option>
+								<option>5元</option>
+							</select>
+							<label for="realName" class="error">error</label>
+						</dd>
+						<dd class="clearfix">
+							<span class="tit">购车时间</span>
+							<select dir="rtl">
+								<option>购车时间</option>
+								<option>5元</option>
+							</select>
+							<label for="realName" class="error">error</label>
+						</dd>
+					</dl>
+					<dl>
+						<dt>购车偏好</dt>
+						<dd class="nobg clearfix">
+							<span class="tit">我喜欢的车型</span>
+							<input type="text" class="txt" placeholder="我喜欢的车型" value="" style="direction:rtl;" />
+							<label for="realName" class="error">error</label>
+						</dd>
+						<dd class="clearfix">
+							<span class="tit">我选择的车系</span>
+							<input type="text" class="txt" placeholder="我选择的车系" value="" style="direction:rtl;" />
+							<label for="realName" class="error">error</label>
+						</dd>
+						<dd class="clearfix">
+							<span class="tit">是否考虑美规车</span>
+							<select dir="rtl">
+								<option>是否考虑美规车</option>
+								<option>可以考虑</option>
+							</select>
+							<label for="realName" class="error">error</label>
+						</dd>
+					</dl>
+					<dl>
+						<dt>其他需求</dt>
+						<dd class="nobg"><textarea>如果您还有其它需求，请告诉乾坤车城，我们会为您提供最佳的购车建议！（非必填）</textarea></dd>
+					</dl>
+					<button class="btn">提交</button>
+				</section>
+			</div>
+		</div>
+	</div>
+	<div class="torequire">
+		<a href="#">
+			<b>乾坤车城天天有特惠、周周有抢车，不要错过喔！</b>
+			<span>活动期间，还有众多优惠车型品牌任您选</span>
+			<i>我想去看看 ></i>
+		</a>
+	</div>
+	<script>
+	$(function() {
+		$('#j-tabli > li').each(function(i){
+			$(this).tap(function(){
+				$(this).addClass('cur');
+				$(this).siblings().removeClass('cur');
+				$(this).parents('.tabcontent').find('section').eq(i).show();
+				$(this).parents('.tabcontent').find('section').eq(i).siblings().hide();
+			});
+		});
+		$('#j-more').tap(function(){
+			if($('#clonelib').children('.cloneelem').length < 2){
+				$('#clonelib').append($('.cloneelem').eq(0).clone());
+				return false;
+			}else{
+				alert('最多添加三款意向车型');
+			};
+		});
+	});
+	</script>
+</body>
+</html>

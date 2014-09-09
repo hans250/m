@@ -1,0 +1,54 @@
+<!--#include file="_topbar.html"-->
+<div class="counselor-person">
+    <div class="slide-ver2">
+        <div class="slide-ver2-frame" id="j-counselor-slide">
+            <ul class="slide-ver2-ul swiper-wrapper">
+                <li class="swiper-slide"><a href="#">
+                    <img
+                        src="images/girl.jpg"
+                        alt=""/>
+                    <p>机会有限，请别犹豫</p>
+                </a></li>
+                <li class="swiper-slide"><a href="#">
+                    <img
+                        src="http://115.29.184.142:81/weixin-image/files/20140116/1369042804704b39bb54205d05a76600/0_320x240"
+                        alt=""/>
+                    <p>机会有限，请别犹豫</p>
+                </a></li>
+            </ul>
+        </div>
+        <div class="pagination-focus" id="j-slide-pgfocus"></div>
+    </div>
+    <div class="counselor-info" id="j-sounselor-info">
+            <ul class="counselor-info-ul clearfix">
+                <li>姓名：<strong>张诗颖</strong>昵称：<b>Wr稀雅变豆逼つ</b></li>
+                <li>简介：我是乾坤最具亲和力的销售顾问</li>
+                <li>入职：2013年4月加入乾坤大家庭</li>
+                <li>奖励：荣获乾坤最佳接待流程冠军</li>
+            </ul>
+            <div class="counselor-btns">
+                <a href="javascript:gwsucc.transmit();" class="xw">选我做顾问</a>
+                <a href="javascript:void(0)" class="wx" id="j-counselor-wx">加微信</a>
+            </div>
+    </div>
+</div>
+<div class="masklayer-counselor" id="j-masklayer-counselor">
+    <div class="masklayer-counselor-inside">
+        <img src="images/tdcode.png" alt="" width="200" height="200" />截图保存至手机相册，打开微信扫一扫，即可添加为好友，您将拥有专属的购车顾问！
+    </div>
+</div>
+<!--#include file="_footer.html"-->
+<script src="js/idangerous.swiper-2.0.min.js"></script>
+<script src="js/f2e.js"></script>
+<style>.bmbar{display:none}</style>
+<script>
+    // 焦点图切换
+    //头部幻灯片
+    var mySwiperfocus = new Swiper('#j-counselor-slide', {
+        pagination: '#j-slide-pgfocus',
+        loop: false,
+        paginationClickable: true
+    });
+</script>
+</body>
+</html>

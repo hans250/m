@@ -1,0 +1,25 @@
+<script src="js/jquery-2.1.0.min.js"></script>
+<script>
+//本地测试预览页面用
+$('body').addClass('nav-open');
+$('.body').after('<a href="javascript:;" class="open-nav"></a>');
+$(".body").addClass('bigfa-nav-holder');
+$(".body").before('<div id="mobile-nav"><a href="saleintro.html">限时特惠说明页</a><a href="baomingqiangche.html">报名抢车</a><a href="qianggoutijiao.html">抢购提交</a><a href="pg-us.html">美规车首页</a><a href="us-list.html">美规车列表页</a><a href="us-qa.html">美规车QA</a></div>');
+$(document).on("click", ".open-nav",
+function() {
+    if ($('.body').hasClass('has-opened')) {
+        $('.body').removeClass('has-opened');
+    }
+     else {
+        $('.body').addClass('has-opened');
+    }
+});
+</script>
+<style>
+.nav-open{overflow-x:hidden}
+.open-nav{ background:#c80f32;background-size:28px 28px;display:block;height:38px;width:38px;position:fixed;bottom:50px;left:10px;z-index:10;border-radius:32px;box-shadow:0 0 0 4px rgba(0,0,0,0.16)}
+.bigfa-nav-holder{position:relative;z-index:5;-webkit-transition:0.5s;transition:0.5s; background:#fff;}
+.has-opened{ transform:translate3D(50%,0,0); transition:0.5s; -webkit-transition:0.5s; -webkit-transform:translate3D(50%,0,0);}
+#mobile-nav{ position:fixed; top:0; left:0; z-index:0; width:50%; height:100%; background:#333; color:#fff; overflow-x:hidden; overflow-y:auto;}
+#mobile-nav a{display:block; height:35px; line-height:35px; border-bottom:1px solid #eee; color:#fff; padding:0 10px;}
+</style>

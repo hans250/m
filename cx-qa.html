@@ -1,0 +1,59 @@
+<!--#include file="_topbar.html"-->
+    <ul class="qa-tab clearfix" id="j-cx-qa-tab">
+        <li class="cur">常见问题</li>
+        <li>车型相关</li>
+    </ul>
+    <div class="qa-cons" id="j-qa-cons">
+        <ul class="qa-box" id="j-qa-box">
+            <li class="cur">
+                <div class="question"><i class="ico"></i>什么是美规车？</div>
+                <div class="answer" style="display:block">
+                    <p>美规车就是制造商迎合北美地区法律法规而制造出来可以在可以在北美地区【美国】道路行驶的汽车。</p>
+                </div>
+            </li>
+            <li>
+                <div class="question"><i class="ico"></i>美规车的进货渠道？</div>
+                <div class="answer">
+                    <p>美规车是经销商通过贸易公司从美国4S店直接进口过来的美国规格的车辆</p>
+                </div>
+            </li>
+            <li>
+                <div class="question"><i class="ico"></i>美规车与中规车的区别？</div>
+                <div class="answer">
+                    <p>别主要有三处：时速表的区别、转向灯、车牌区。</p>
+                    <p>美规车时速表一般是英里制；美规车转向灯罩一定是黄色的，而且一般在翼子板也有黄色的发光条；美规车车牌对比国内要细长，国内的车牌有时候不方便安装。</p>
+                </div>
+            </li>
+        </ul>
+        <ul class="qa-box" id="j-qa-box" style="display:none">
+            <li class="cur">
+                <div class="question"><i class="ico"></i>2？</div>
+                <div class="answer" style="display:block">
+                    <p>美规车就是制造商迎合北美地区法律法规而制造出来可以在可以在北美地区【美国】道路行驶的汽车。</p>
+                </div>
+            </li>
+            <li>
+                <div class="question"><i class="ico"></i>美规车与中规车的区别？</div>
+                <div class="answer">
+                    <p>别主要有三处：时速表的区别、转向灯、车牌区。</p>
+                    <p>美规车时速表一般是英里制；美规车转向灯罩一定是黄色的，而且一般在翼子板也有黄色的发光条；美规车车牌对比国内要细长，国内的车牌有时候不方便安装。</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+<!--#include file="_footer.html"-->
+<script>
+tab("j-cx-qa-tab","li","j-qa-cons",".qa-box");
+$(function(){
+	$('.qa-box').find('.question').bind('click',function(){
+		if($(this).parent().hasClass('cur')){
+			$(this).parent().removeClass('cur');
+		}else{
+			$(this).parent().addClass('cur');
+		};
+		$(this).next().slideToggle('fast');
+	});
+});
+</script>
+</body>
+</html>

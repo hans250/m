@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+	<link href="css/landingpage2.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="body">
+		<div class="header clearfix">
+			<div class="logo">乾坤车城</div>
+			<div class="loginarea">
+				<span class="ico-login"></span>
+				<a href="登录.html">登录</a>
+			</div>
+		</div>
+		<div class="crumb">
+			<a href="index.html">首页</a> &gt; 乾坤会员
+		</div>
+		<ul class="qa-box" id="j-qa-box">
+			<li class="title">美规车介绍</li>
+			<li class="cur">
+				<div class="question"><i class="ico"></i>什么是美规车？</div>
+				<div class="answer" style="display:block">
+					<p>美规车就是制造商迎合北美地区法律法规而制造出来可以在可以在北美地区【美国】道路行驶的汽车。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question"><i class="ico"></i>美规车的进货渠道？</div>
+				<div class="answer">
+					<p>美规车是经销商通过贸易公司从美国4S店直接进口过来的美国规格的车辆</p>
+				</div>
+			</li>
+			<li>
+				<div class="question"><i class="ico"></i>美规车与中规车的区别？</div>
+				<div class="answer">
+					<p>别主要有三处：时速表的区别、转向灯、车牌区。</p>
+					<p>美规车时速表一般是英里制；美规车转向灯罩一定是黄色的，而且一般在翼子板也有黄色的发光条；美规车车牌对比国内要细长，国内的车牌有时候不方便安装。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question"><i class="ico"></i>美规车与中规车哪个质量更好？</div>
+				<div class="answer">
+					<p>美国汽车市场的准入机制和检测标准相对比中国高，在美国车商一旦爆出质量问题就面临高成本的市场召回、赔偿诉讼，因此美规车质量把关更加的严格。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question"><i class="ico"></i>美规车的安全性能更高吗？</div>
+				<div class="answer">
+					<p>美国交通法规比较注重车辆的安全性能，事关人身安全的胎压监测装置、防抱死装置（ABS）、ESP系统（车身电子稳定程序）是车辆必须强制安装。我目前还没有出台关于ABS的强制性安装标准。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question"><i class="ico"></i>美规车与中规车的配置有区别吗？</div>
+				<div class="answer">
+					<p>中规车的配置比美规车稍多一些，但美规车大都是根据车主需要进行个性化订单生产的，如外滑式全景天窗，大灯清洗，氙气头灯，后窗遮阳帘，主动车身控制系统这些配置可以根据自己的需求选购，而中规车基本无法自己选择个性化配置。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question"><i class="ico"></i>为什么一些人倾向于买美规车？</div>
+				<div class="answer">
+					<p>大部分美规车比国内正常渠道进口的要便宜，像百万级别的SUV比如Q7、保时捷卡宴等要便宜10%以上，也很少有加价等现象。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question"><i class="ico"></i>美规车与中规车的发动机有什么不同？</div>
+				<div class="answer">
+					<p>同一个厂家，同一个产地，生产出来的同一款汽车带有同一型号的发动机，他的功率扭矩都是固定的，但是铸造工艺以及调校需根据不同国家和地区的要求进行调整。</p>
+				</div>
+			</li>
+			<li class="title">美规车购车流程</li>
+			<li>
+				<div class="question"><i class="ico"></i>如何在乾坤购买美规车？</div>
+				<div class="answer">
+					<p>与购买中规车没有差异，一切手续由乾坤车城通过合法程序代办完成。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question"><i class="ico"></i>美规车订车周期一般多久？</div>
+				<div class="answer">
+					<p>根据不同配置需要相关，具体时间可到店详询购车顾问。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question"><i class="ico"></i>美规车如何上牌？</div>
+				<div class="answer">
+					<p>客户不必担心，一切手续由乾坤车城通过合法程序代办完成。</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/touch.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+<script>
+$(function(){
+	$('#j-qa-box').find('.question').bind('click',function(){
+		if($(this).parent().hasClass('cur')){
+			$(this).parent().removeClass('cur');
+		}else{
+			$(this).parent().addClass('cur');
+		};
+		$(this).next().slideToggle('fast');
+	});
+});
+</script>
+</body>
+</html>
