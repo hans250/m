@@ -27,6 +27,7 @@ a{ text-decoration:none;}
 .f-adds:after{ content:"\e61e";}
 .f-larrow:after{ content:"\e620";}
 .f-tolink:after{ content:"\e621";}
+.f-calc:after{ content:"\e622";}
 
 body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 .body{ min-width:320px;}
@@ -149,7 +150,7 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 .conbox .val-box li .mg-baoguan{ color:#febc02;}
 .conbox .val-box li .cbcolor{ display:inline-block; color:#000; background:#fff2ce; border-radius:2px; padding:5px 10px;}
 .conbox .val-box li.wide{ width:100%;}
-.buyperson{ border:1px dashed #fe8c10; border-radius:2px; padding:5px 0; overflow:hidden;}
+.buyperson{ border:1px dashed #e7b557; border-radius:2px; padding:5px 0; overflow:hidden;}
 .buyperson p{ float:left; width:38%; padding:0 1%;}
 .buyperson p:nth-child(2n){ width:58%;}
 .mgc-border{ float:left; height:20px; line-height:20px; border:1px solid #e3121a; border-radius:3px; margin:6px 0 0 10px;}
@@ -160,6 +161,12 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 .mgc-border i, .mgc-border-yellow i{ float:left; width:5px; height:20px; overflow:hidden; background:url(../images/ico31.png) no-repeat; background-size:100%;}
 .mgc-border-yellow i{ background-image:url(../images/ico32.png);}
 .mgc-border a{ float:left; padding:0 10px 0 5px; color:#649ade;}
+
+.content-calc-box{ color:#898989; padding:5px;}
+.content-calc-box p{ padding:10px 0;}
+.content-calc-box p span{ color:#292929;}
+.content-calc-box .btn{ display: block; line-height:30px; border:1px solid #e7b557; border-radius:4px; color:#e7b557; text-align:center; font-size: 1.1em;}
+.content-calc-box .btn i{ font-size:1.3em;}
 
 
 .conbox .val-box .status{ color:#febc02;}

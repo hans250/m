@@ -8,18 +8,18 @@
 define('DOME_APP','./qkmobile static html/');
 
 $urls = array(
-  'index'=>'http://172.16.85.120/1/m/index.html',
+  /*'index'=>'http://172.16.85.120/1/m/index.html',
   'cx-qa'=>'http://172.16.85.120/1/m/cx-qa.html',
-  /*'pg-sale'=>'http://172.16.85.120/1/m/pg-sale.html',
+  'pg-sale'=>'http://172.16.85.120/1/m/pg-sale.html',
   'qianggoutijiao'=>'http://172.16.85.120/1/m/qianggoutijiao.html',
   'saleintro'=>'http://172.16.85.120/1/m/saleintro.html',
   'pg-us'=>'http://172.16.85.120/1/m/pg-us.html',
   'us-list'=>'http://172.16.85.120/1/m/us-list.html',
   'us-qa'=>'http://172.16.85.120/1/m/us-qa.html',*/
   
-  'pg-cx'=>'http://172.16.85.120/1/m/pg-cx.html',
+  /*'pg-cx'=>'http://172.16.85.120/1/m/pg-cx.html',
   'pg-cxover'=>'http://172.16.85.120/1/m/pg-cxover.html',
-  /*'cx-result'=>'http://172.16.85.120/1/m/cx-result.html',
+  'cx-result'=>'http://172.16.85.120/1/m/cx-result.html',
   'cx-brand'=>'http://172.16.85.120/1/m/cx-brand.html',
   'cx-contrast'=>'http://172.16.85.120/1/m/cx-contrast.html',
   'cx-addcontrast'=>'http://172.16.85.120/1/m/cx-addcontrast.html',
@@ -44,7 +44,8 @@ $urls = array(
   'find1'=>'http://172.16.85.120/1/m/find1.html',
   'find2'=>'http://172.16.85.120/1/m/find2.html',
   'find3'=>'http://172.16.85.120/1/m/find3.html',*/
-  'map'=>'http://172.16.85.120/1/m/map.html',
+  // 'map'=>'http://172.16.85.120/1/m/map.html',
+  'calc'=>'http://172.16.85.120/1/m/calc.html',
 );
 
 if(is_array($urls))
