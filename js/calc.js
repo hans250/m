@@ -4,7 +4,6 @@
 $(function(){
     //absolute块赋予高度
     $(".calc-blks").css("height",($(".calc-blk").eq(1).height() ));
-    console.log($(".calc-blk").eq(0).height())
     //4等分元素屏幕宽度
     $(".calc-blk").css("width",$(document).width());
 //    $(".cash").text("待定");
@@ -437,3 +436,33 @@ $.extend({
 $(function() {
     $.bankSelect($("#xzyh"),$("#yg"),$("#lxzffs"));
 });
+
+//stage3
+$(function(){
+    calc_autosize();
+    $('.jzjp-select').each(function(){
+        $(this).find('dl').bind('click',function(){
+            $(this).siblings().removeClass('cur').end().addClass('cur');
+            if($(this).parents('#j-jzjp-select-normal').length==0)return;
+            var ml=$(this).parents('.calc-cons').offset().left-$(this).find('dd').offset().left;
+            var oml=$(this).find('dd').css('margin-left');
+            if(oml=='0px'){$(this).find('dd').css({'margin-left':ml});}
+        }).eq(0).trigger('click');
+    });
+});
+function calc_autosize(){
+    function run(){
+        $('.jzjp-select').each(function(){
+            $(this).find('dl').each(function(){
+                var win_w=$(document.body).width();
+                var w=$(this).find('dt').width();
+                $(this).find('dd').css({'width':win_w});
+                if($(this).parents('#j-jzjp-select-normal').length==0)return;
+                $(this).css({'width':w});
+            });
+        });
+
+    }
+    run();
+    $(window).resize(run);
+}

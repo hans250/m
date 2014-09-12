@@ -486,6 +486,13 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 .czc-ul .ykj{ color:#f00;}
 .czc-ul .zdj b{ text-decoration:line-through;}
 
+/* czc-nonedata */
+.czc-nonedata{ text-align:center; color:#000;}
+.czc-nonedata .tit{ font-size:1.3em; padding-top:15px;}
+.czc-nonedata .txt{ font-size:.8em; padding:10px 0;}
+.czc-nonedata .txt span{ color:#f46d56;}
+.czc-nonedata a{ display:block; width:110px; line-height:28px; border-radius:2px; background:#f46d56; color:#fff; margin:0 auto; font-size:1.1em;}
+
 /* 美规车列表页 */
 /* topbar */
 .topbar{ position:fixed; top:0; left:0; width:100%; height:50px; line-height:50px; background:#292929; color:#fff; font-size:1.2em; text-align:center; font-weight:bold; z-index:99;}
@@ -968,21 +975,29 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 .settle-box-ul li:nth-child(even){ background:#fafafa;}
 .settle-box-ul .val{ float:right;}
 
-/* ipt-chk */
-/*..calc-list-tit{ display:none;}
-.ipt-chk + label i{ float:left; width:15px; height:15px; background:url(../images/calc1.png) no-repeat; background-size:100%; margin:13px 15px 0 0;}
-.ipt-chk:checked + label i{ background:url(../images/calc2.png) no-repeat; background-size:100%;}*/
-
-@media only screen and (max-width:768px){
-}
-@media only screen and (min-width:340px){
-    .conbox .slide-ver2{ width:320px; height:240px;}
-}
-@media only screen and (min-width:768px){
-    .tointro{ width:640px; height:200px;}
-    .to-usintro{ width:640px;}
-    .saleintro-box img{ width:640px;}
-}
+/* jzjp-box */
+.jzjp-box .hl{ color: #deae55;}
+.jzjp-box .duibi{ position: absolute; top:40px;right: 10px;}
+.jzjp-box li{position: relative;}
+.jzjp-box li big{ font-size:1.1em;}
+.jzjp-select{ padding: 0 10px; overflow: hidden; }
+.jzjp-select dl{ margin: 10px 0 0 10px; padding-bottom: 10px; overflow: hidden;  }
+.jzjp-select dt{ text-align: center; height: 42px; overflow: hidden;  }
+.jzjp-select dt span{ display:block; white-space: nowrap; border-radius: 5px; border: solid 1px; border-color: #ddd; height: 40px; line-height: 40px; overflow: hidden; padding: 0 20px;}
+.jzjp-select dt .arrow{ display: inline-block;width: 0;height: 0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-bottom: 10px solid #333;}
+.jzjp-select dd{display: none; background:#333; color: #999; width: 100%; margin-top: -10px; margin-left: -20px; }
+.jzjp-select dd .inner{padding: 10px;}
+.jzjp-select dl.cur{ overflow: visible;}
+.jzjp-select dl.cur dt{ height: 66px;}
+.jzjp-select dl.cur dt span{ border-color: #e3121a;}
+.jzjp-select dl.cur dd{ display: block;}
+.jzjp-list{line-height: 30px; }
+.jzjp-list li{ border-bottom:1px #999; border-bottom-style: dotted; padding:10px; overflow: hidden;position: relative; }
+.jzjp-list li:first-child{ border-bottom-style: solid; color: #d0d0d0; }
+#j-jzjp-select-normal dt{ display: inline-block;*display:inline; zoom:1;}
+#j-jzjp-select-normal dl{ display: inline-block;vertical-align: top; *display:inline; zoom:1;}
+#j-jzjp-select-normal dt span{ display: inline-block;}
+#j-jzjp-select-normal dd{ margin-left: 0px;}
 
 /*jifen*/
 .red{ color: #f00;}
@@ -996,6 +1011,29 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 .jifen-index-page{ text-align: center; margin-top: 10px; color: #008000;}
 .jifen-detail-tit{ margin-top: 10px; text-align: center;}
 .jifen-detail-content{ margin: 10px; padding: 10px; border:solid 1px #ccc; line-height: 24px; overflow: hidden;}
+
+
+/* =========================活动模板相关========================= */
+/* act-slide */
+.act-slide .banner{ position:absolute; bottom:0; width:100%; height:25px; text-align:center; color:#fff; background:rgba(0,0,0,.5);}
+.act-slide .banner .tit{ position:absolute; left:0; bottom:2%; display:block; width:100%;}
+.act-slide .banner .tit b{ display:inline-block; background:#000; border-radius:4px; margin:0 3px; padding:0 2px;}
+
+/* act-area */
+.act-area{ }
+.act-area-hd{ line-height:36px; background:#efefef; border-left:3px solid #c71a1a; font-size:1.2em; padding-left:5px;}
+
+
+
+@media only screen and (min-width:340px){
+    .conbox .slide-ver2{ width:320px; height:240px;}
+}
+@media only screen and (min-width:768px){
+    .tointro{ width:640px; height:200px;}
+    .to-usintro{ width:640px;}
+    .saleintro-box img{ width:640px;}
+}
+
 
 /*
  查找下pgyxj 是否结构已经清除
