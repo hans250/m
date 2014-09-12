@@ -442,12 +442,18 @@ $(function(){
     calc_autosize();
     $('.jzjp-select').each(function(){
         $(this).find('dl').bind('click',function(){
-            $(this).siblings().removeClass('cur').end().addClass('cur');
+            $(this).siblings().removeClass('cur');
+            if($(this).hasClass('cur')){
+                $(this).removeClass('cur');
+            }
+            else{
+                $(this).addClass('cur');
+            }
             if($(this).parents('#j-jzjp-select-normal').length==0)return;
             var ml=$(this).parents('.calc-cons').offset().left-$(this).find('dd').offset().left;
             var oml=$(this).find('dd').css('margin-left');
             if(oml=='0px'){$(this).find('dd').css({'margin-left':ml});}
-        }).eq(0).trigger('click');
+        });
     });
 });
 function calc_autosize(){
@@ -461,7 +467,6 @@ function calc_autosize(){
                 $(this).css({'width':w});
             });
         });
-
     }
     run();
     $(window).resize(run);
