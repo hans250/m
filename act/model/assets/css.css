@@ -61,9 +61,10 @@ body{ min-width:320px; max-width:768px; margin:0 auto; background:url(../assets/
 .bchdcx-ul li.cur{ background: #b4b4b4; color:#fff;}
 
 /* hdxc-ul */
-.hdxc-ul li a{ display:block; padding:10px 30px 0 120px; overflow: hidden; color: #666;}
-.hdxc-ul img{ float: left; margin-left:-110px; border-radius: 2px;}
-.hdxc-ul i{ float: right; margin:12px -25px 0 0;}
+.hdxc-ul li a{ display:block; padding:10px 40px 0 100px; overflow: hidden; color: #666; font-size:.9em;}
+.hdxc-ul img{ float: left; margin-left:-90px; border-radius: 2px;}
+.hdxc-ul i{ float: right; margin:16px -30px 0 0;}
+.hdxc-ul span{ display:block; padding-top:8px;}
 
 /* titbar */
 .titbar{ position:relative; color:#CCA945; margin:0 10px; text-align:center;}

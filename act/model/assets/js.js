@@ -3,7 +3,7 @@
 //navScrollTo
 $(function ($) {
     $(window).scroll(function () {
-        if ($(window).scrollTop() > 150) {
+        if ($(window).scrollTop() > 623) {
             $('#j-nav-position').addClass('selected');
             $("#j-nav-position").css("width",$(document).width());
         } else {
