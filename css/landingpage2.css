@@ -955,7 +955,9 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 .calc-list-ul .point2{ position:absolute; left:5px; top:0; padding:13px 15px 0 0; width:15px; height:15px;}
 .calc-list-ul .point2 i{ display:block; width:15px; height:15px; background:url(../images/calc1.png) no-repeat; background-size:100%;}
 .check-select-box-cur .point i, .calc-list-ul .point2-cur i{ background-image:url(../images/calc2.png);}
-
+.settle-box-btn{ text-align: center;}
+.settle-box-btn .btn1{ display: inline-block; padding: 5px 20px; min-width:100px; text-align: center; border-radius: 5px; background: #e7b557; color: #fff; }
+.settle-box-btn .btn2{ display: inline-block; padding: 5px 20px; min-width:100px; text-align: center; border-radius: 5px; background: #cccccc; color: #333; }
 /* calc-settle */
 .calc-settle{ border:1px solid #ddd; border-radius:2px; margin:0 10px;}
 .calc-settle .tit{ text-align:center; color:#666; line-height:30px; font-size:1.1em;}
