@@ -981,27 +981,32 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 /* jzjp-box */
 .jzjp-box .hl{ color: #deae55;}
 .jzjp-box .duibi{ position: absolute; top:40px;right: 10px;}
+.jzjp-box .duibi a:after{content:' ∨';}
+.jzjp-box .duibi a.show:after{content:' ∧';}
+.jzjp-box .price-area{ display: none;}
 .jzjp-box li{position: relative;}
 .jzjp-box li big{ font-size:1.1em;}
 .jzjp-select{ padding: 0 10px; overflow: hidden; }
-.jzjp-select dl{ margin: 10px 0 0 10px; padding-bottom: 10px; overflow: hidden;  }
+.jzjp-select dl{ margin: 10px 0 0 10px; padding-bottom: 10px;}
 .jzjp-select dt{ text-align: center; height: 42px; overflow: hidden;  }
 .jzjp-select dt span{ display:block; white-space: nowrap; border-radius: 5px; border: solid 1px; border-color: #ddd; height: 40px; line-height: 40px; overflow: hidden; padding: 0 20px;}
 .jzjp-select dt .arrow{ display: inline-block;width: 0;height: 0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-bottom: 10px solid #333;}
 .jzjp-select dd{display: none; background:#333; color: #999; width: 100%; margin-top: -10px; margin-left: -20px; }
 .jzjp-select dd .inner{padding: 10px;}
-.jzjp-select dl.cur{ overflow: visible;}
 .jzjp-select dl.cur dt{ height: 66px;}
 .jzjp-select dl.cur dt span{ border-color: #e3121a;}
 .jzjp-select dl.cur dd{ display: block;}
 .jzjp-list{line-height: 30px; }
 .jzjp-list li{ border-bottom:1px #999; border-bottom-style: dotted; padding:10px; overflow: hidden;position: relative; }
 .jzjp-list li:first-child{ border-bottom-style: solid; color: #d0d0d0; }
+.jzjp-list li.last{ border: 0px;}
+.jzjp-list .calc-list-ul { position:relative; float: left; width: 30px; height: 30px; margin: -5px 0 0 -10px;  }
+.calc-list-ul-jzjp-li dl{ display: inline-block; *display: inline; zoom:1; margin: 5px 0 0 20px; padding: 0;  } 
+.calc-list-ul-jzjp-li dt{ display: inline-block; *display: inline; zoom:1; height: 20px; line-height: 20px; margin: 0; padding: 0}
 #j-jzjp-select-normal dt{ display: inline-block;*display:inline; zoom:1;}
 #j-jzjp-select-normal dl{ display: inline-block;vertical-align: top; *display:inline; zoom:1;}
 #j-jzjp-select-normal dt span{ display: inline-block;}
 #j-jzjp-select-normal dd{ margin-left: 0px;}
-
 /*jifen*/
 .red{ color: #f00;}
 .gray{ color: #ccc;}
