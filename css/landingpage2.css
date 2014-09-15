@@ -376,6 +376,7 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 .tabcon .tit{ float:left; color:#666;}
 .tabcon input.txt, .tabcon select{ float:right; border:none; width:60%; text-align:right;}
 .tabcon select{ -webkit-appearance:none; color:#a3a3a3; margin:0;}
+.tabcon select.rtl-sp{ width:80%;}
 .tabcon textarea{ border:none; width:100%; height:100px; resize:none;}
 .tabcon label.error{ position:absolute; left:8px; bottom:-21px; font-size:.9em; color:#f00;}
 .tabcon .more{ display:block; margin-top:20px; color:#5296dd;}
@@ -943,7 +944,7 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 .calc-list-ul .tit-auto{ width:auto;}
 .calc-list-ul .value-box{ float:right; width:60%; text-align:right;}
 .calc-list-ul .value-box b{ font-weight:400;}
-.hide-select-box{ position:relative; float:left; width:70%; height:20px; line-height:20px; overflow:hidden; margin-top:10px;}
+.hide-select-box{ position:relative; float:left; width:50%; height:20px; line-height:20px; overflow:hidden; margin-top:10px;}
 .hide-select-inside{ position:absolute; left:0; top:0; display:block; width:120%;}
 .hide-select-box select{ width:100%; background:transparent; border:none; font-size:1em; color:#666; margin:0; line-height:14px;}
 .value-box .hide-select-box{ float:right; direction:rtl;}
@@ -968,7 +969,7 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 
 /* settle-box */
 .settle-box{ padding-bottom:10px;}
-.settle-box-hd i{ float:right; font-weight:400; transform:rotate(270deg);}
+.settle-box-hd i{ float:right; font-weight:400; -webkit-transform:rotate(270deg); -moz-transform:rotate(270deg); transform:rotate(270deg);}
 .settle-box-bd{ margin:0 10px; line-height:20px; color:#666;}
 .settle-box-title, .settle-box-title2{ border-bottom:1px solid #ddd; color:#bbb; font-weight:700; line-height:30px; padding:0 5px;}
 .settle-box-title2{ color:#e7b557; text-align:center;}
