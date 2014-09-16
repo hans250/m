@@ -4,6 +4,14 @@
 $(function(){
     //4等分元素屏幕宽度
     $(".calc-blk").css("width",$(document).width());
+    $(".j-sh-switch").click(function(){
+        $(this).next().toggle();
+        if($(this).hasClass("j-sh-switch-cur")){
+            $(this).removeClass("j-sh-switch-cur");
+        }else{
+            $(this).addClass("j-sh-switch-cur");
+        };
+    });
 //    $(".cash").text("待定");
 });
 //冒泡排序
@@ -238,18 +246,19 @@ $(function(){
             if($(this).hasClass("point2-dszzrx")){
                 $(".point2-dszzrx").siblings().find("#dszzrx").removeAttr("disabled");
                 $("#dszzrx-val").attr("data-value",$("#dszzrx-val").text());
-                $("#stage4-jbxz").append("<li class='c1'><span class='val'>￥<b id='s4-dszzrx-val'>" + $("#dszzrx-val").attr("data-value") + "</b></span><span class='tit'>第三者责任险</span></li>")
+                $("#stage4-jbxz").append("<li class='c1'><span class='val'>￥<b id='s4-dszzrx-val'>" + $("#dszzrx-val").attr("data-value") + "</b></span><span class='tit'>第三者责任险</span></li>");
             };
             //玻璃单独破碎险
             if($(this).hasClass("point2-blddpsx")){
                 $(".point2-blddpsx").siblings().find("#blddpsx").removeAttr("disabled");
                 $("#blddpsx-val").attr("data-value",$("#blddpsx-val").text());
-                $("#stage4-jbxz").append("<li class='c1'><span class='val'>￥<b id='s4-dszzrx-val'>" + $("#dszzrx-val").attr("data-value") + "</b></span><span class='tit'>第三者责任险</span></li>")
+                $("#stage4-fjxz").append("<li class='c2'><span class='val'>￥<b id='s4-blddpsx-val'>" + $("#blddpsx-val").attr("data-value") + "</b></span><span class='tit'>玻璃单独破碎险</span></li>");
             };
             //车身划痕损失险
             if($(this).hasClass("point2-cshhssx")){
                 $(".point2-cshhssx").siblings().find("#cshhssx").removeAttr("disabled");
                 $("#cshhssx-val").attr("data-value",$("#cshhssx-val").text());
+                $("#stage4-fjxz").append("<li class='c3'><span class='val'>￥<b id='s4-cshhssx-val'>" + $("#cshhssx-val").attr("data-value") + "</b></span><span class='tit'>车身划痕损失险</span></li>");
             };
         };
 
@@ -390,8 +399,10 @@ $(function(){
         //首付合计
         if($("#j-stage1-tab").find("li").eq(0).hasClass("cur")){
             $("#s4-all").text(parseFloat($("#s4-csj").text()) + parseFloat($("#s4-gzs").text()) + parseFloat($("#s4-jrfwf").text()) + parseFloat($("#s4-spfwf").text()) + parseFloat($("#s4-dyfwf").text()) + parseFloat($("#s4-bxje").text()));
+            $("#s4-tit").text("首付合计");
         }else{
             $("#s4-all").text(parseFloat($("#s4-csj").text()) + parseFloat($("#s4-gzs").text()) + parseFloat($("#s4-spfwf").text()) + parseFloat($("#s4-bxje").text()));
+            $("#s4-tit").text("购车合计");
         };
         $("#j-calc-nav-val4").text($("#s4-all").text());
     };
@@ -406,9 +417,9 @@ $(function(){
             //车辆损失险
             $("#clssx-val").text(566 + parseFloat($("#csj").val()) * 0.0135);
             //全车盗抢险
-            $("#qcdqx-val").text(120 + parseFloat($("#csj").val()) * 0.05);
+            $("#qcdqx-val").text(120 + parseFloat($("#csj").val()) * 0.005);
             //司机座位责任险
-            $("#sjzwzrx-val").text(10000 * 0.041);
+            $("#sjzwzrx-val").text(10000 * 0.0041);
         }else if(selectTxt == "(家用6座以上)"){
             $("#dszzrx").children().remove();
             $("#dszzrx").append("<option value='616'>(5万)</option><option value='869'>(10万)</option><option value='982'>(15万)</option><option value='1058' selected='selected'>(20万)</option><option value='1185'>(30万)</option><option value='1411'>(50万)</option><option value='1838'>(100万)</option>");
@@ -431,7 +442,7 @@ $(function(){
 //==========================================页面select表单选择逻辑，华丽丽的分割线 ヽ(●´∀`●)ﾉ==========================================
 $.extend({
     bankSelect: function (oBank, oMonth, oWay) {
-        oBank.blur(function () {
+        oBank.change(function () {
             var val = $(this).val();
             oMonth.children().remove();
             oWay.children().remove();
@@ -454,7 +465,7 @@ $.extend({
                 oWay.append("<option value='ftsq'>分摊收取</option>");
             };
         });
-        oWay.blur(function () {
+        oWay.change(function () {
             var val = $(this).val();
             if (val == "ycxsq") {
                 oMonth.children().remove();

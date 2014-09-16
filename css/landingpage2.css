@@ -1,6 +1,6 @@
 @charset 'utf-8';
 body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,a{ margin:0; padding:0;}
-body,button,input,select,textarea,td{ font-size:14px; line-height:20px; font-family:"microsoft yahei",sans-serif;}
+body,button,input,select,textarea,td{ font-size:14px; line-height:20px; font-family:STHeiTi,"Microsoft YaHei",Helvetica,"Helvetica Neue",sans-serif;}
 ul,ol{ list-style:none;}
 input[type=text], input[type=button]{ -webkit-appearance:none;}
 table{ border-collapse:collapse;}
@@ -970,7 +970,8 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 
 /* settle-box */
 .settle-box{ padding-bottom:10px;}
-.settle-box-hd i{ float:right; font-weight:400; -webkit-transform:rotate(270deg); -moz-transform:rotate(270deg); transform:rotate(270deg);}
+.settle-box-hd i{ float:right; font-weight:400; -webkit-transform:rotate(270deg); -moz-transform:rotate(270deg); transform:rotate(270deg); -moz-transition:.2s ease-in; -webkit-transition:.2s ease-in; transition:.2s ease-in;}
+.j-sh-switch-cur i{ -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); transform:rotate(90deg);}
 .settle-box-bd{ margin:0 10px; line-height:20px; color:#666;}
 .settle-box-title, .settle-box-title2{ border-bottom:1px solid #ddd; color:#bbb; font-weight:700; line-height:30px; padding:0 5px;}
 .settle-box-title2{ color:#e7b557; text-align:center;}
