@@ -457,7 +457,7 @@ $(function(){
         var comput=function(){
             try{
                 var cur=$(jse).parents('.calc-con').find('dl.cur');
-                var total=getTotal(cur.find('.jzjp-list-total'));
+                var total=getTotal(cur.find('big.fr'));
                 var html=getTaozhuang(cur);
                 $(jse).parents('.calc-con').find('.calc-settle').find('#stage1-p').html(html);
                 $(jse).parents('.calc-con').find('.calc-settle').find('.js .val').html(total);
