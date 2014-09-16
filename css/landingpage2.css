@@ -16,6 +16,7 @@ a{ text-decoration:none;}
 .mt20{ margin-top:20px!important;}
 .mt30{ margin-top:30px!important;}
 .mb30{ margin-bottom:30px!important;}
+.w70{ width: 70%!important;}
 .center{ text-align:center!important;}
 .centerwm{ text-align:center!important; font-size:.8em; line-height:15px; color:#898989; margin-top:15px;}
 .centerwmgo{ text-align:left!important; font-size:1em; color:#898989;}
@@ -949,7 +950,7 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 .hide-select-box select{ width:100%; background:transparent; border:none; font-size:1em; color:#666; margin:0; line-height:14px;}
 .value-box .hide-select-box{ float:right; direction:rtl;}
 .value-box .hide-select-inside{ left:-20%;}
-.ckyhdb{ display:block; color:#e7b557; line-height:40px; text-align:center; margin-top:10px;}
+.ckyhdb{ display:none; color:#e7b557; line-height:40px; text-align:center; margin-top:10px;}
 .check-select-box{ width:100%; height:100%;}
 .check-select-box .point{ float:left; padding:13px 15px 0 0; width:15px; height:15px;}
 .check-select-box .point i{ display:block; width:15px; height:15px; background:url(../images/calc1.png) no-repeat; background-size:100%;}

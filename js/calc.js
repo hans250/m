@@ -2,13 +2,37 @@
 
 //初始css相关
 $(function(){
-    //absolute块赋予高度
-    $(".calc-blks").css("height",($(".calc-blk").eq(1).height() ));
     //4等分元素屏幕宽度
     $(".calc-blk").css("width",$(document).width());
 //    $(".cash").text("待定");
 });
-
+//冒泡排序
+function bubbleSort(arr){
+    var i=arr.length, j;
+    var tempExchangVal;
+    while(i>0){
+        for(j=0;j<i-1;j++){
+            if(arr[j]>arr[j+1]){
+                tempExchangVal = arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=tempExchangVal;
+            }
+        }
+        i--;
+    }
+    return arr;
+};
+//四屏高度取最高值
+function bigHei(){
+    var arrHei = [];
+    $(".calc-blk").each(function(){
+        arrHei.push($(this).height())
+    });
+    bubbleSort(arrHei);
+    //absolute块赋予高度
+    $(".calc-blks").css("height",arrHei[3]);
+};
+bigHei();
 //找到nav数组赋予点击功能
 $("#j-calc-nav-ul").find("li").each(function(i){
     $(this).click(function(){
@@ -248,8 +272,15 @@ $(function(){
         $("#dkje-val").text(dkjeVal);
         //银行利率及利息金额
         var yhllVal = $("#yg").val();
-        var lxValue = (parseFloat(csjVal) * yhllVal).toFixed(0);
+        if($("#lxzffs").val() == "ftsq"){
+            var lxValue = (dkjeVal / $("#yg").find("option:selected").attr("data-cycle") + (dkjeVal * yhllVal) / $("#yg").find("option:selected").attr("data-cycle")).toFixed(0);
+        };
+        if($("#lxzffs").val()== "ycxsq"){
+            var lxValue = (dkjeVal / $("#yg").find("option:selected").attr("data-cycle") + (dkjeVal * yhllVal)).toFixed(0);
+        };
         $("#lxje-val").text(lxValue);
+        //购置税
+        $("#gzs").text((dkjeVal / (1 + 0.17) * 0.1).toFixed(0));
         //必要花费
         var byhfValue = parseFloat($("#gzs").text()) + parseFloat($("#jrfwf").text()) + parseFloat($("#spfw").val());
         $("#settle-byhf").text(byhfValue);
@@ -400,35 +431,37 @@ $(function(){
 //==========================================页面select表单选择逻辑，华丽丽的分割线 ヽ(●´∀`●)ﾉ==========================================
 $.extend({
     bankSelect: function (oBank, oMonth, oWay) {
-        oBank.click(function () {
+        oBank.blur(function () {
             var val = $(this).val();
             oMonth.children().remove();
             oWay.children().remove();
             if (val == "xy") {
-                oMonth.append("<option value=''>(12期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
-                oWay.append("<option value=''>分摊收取</option>");
+                oMonth.append("<option value='0.0588' data-cycle='12'>(12期)</option><option value='0.1032' data-cycle='24'>(24期)</option><option value='0.144' data-cycle='36'>(36期)</option>");
+                oWay.append("<option value='ftsq'>分摊收取</option>");
             }else if(val == "zx"){
-                oMonth.append("<option value=''>(212期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
-                oWay.append("<option value=''>分摊收取/等额本息</option>");
+                oMonth.append("<option value='0.0896' data-cycle='12'>(12期)</option><option value='0.0896' data-cycle='12'>(24期)</option><option value='0.0896' data-cycle='12'>(36期)</option>");
+                oWay.append("<option value='ftsq'>分摊收取</option>");
             }else if(val == "js"){
-                oMonth.append("<option value=''>(312期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
-                oWay.append("<option value=''>一次性收取</option>");
+                oMonth.append("<option value='0' data-cycle='12'>(12期)</option><option value='0.072' data-cycle='24'>(24期)</option><option value='0.108' data-cycle='36'>(36期)</option>");
+                oWay.append("<option value='ycxsq'>一次性收取</option>");
             }else if(val == "gs"){
-                oMonth.append("<option value=''>(g12期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
-                oWay.append("<option value='ycx'>一次性收取</option><option value='ft'>分摊收取</option>");
+                oMonth.append("<option value='0.0358' data-cycle='12'>(12期)</option><option value='0.0705' data-cycle='24'>(24期)</option><option value='0.1043' data-cycle='36'>(36期)</option>");
+                oWay.append("<option value='ycxsq'>一次性收取</option>");
+            }else if(val == "zg"){
+                oWay.append("<option value='ycxsq'>一次性收取</option><option value='ftsq'>分摊收取</option>");
             }else if(val == "pa"){
-                oMonth.append("<option value=''>(512期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
-                oWay.append("<option value=''>分摊收取</option>");
-            }
+                oMonth.append("<option value='0.06' data-cycle='12'>(12期)</option><option value='0.12' data-cycle='24'>(24期)</option><option value='0.18' data-cycle='36'>(36期)</option>");
+                oWay.append("<option value='ftsq'>分摊收取</option>");
+            };
         });
-        oWay.click(function () {
+        oWay.blur(function () {
             var val = $(this).val();
-            if (val == "ycx") {
+            if (val == "ycxsq") {
                 oMonth.children().remove();
-                oMonth.append("<option value=''>(z12期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
-            }else if(val == "ft"){
+                oMonth.append("<option value='0.035' data-cycle='12'>(12期)</option><option value='0.075' data-cycle='24'>(24期)</option><option value='0.11' data-cycle='36'>(36期)</option>");
+            }else if(val == "ftsq"){
                 oMonth.children().remove();
-                oMonth.append("<option value=''>(z212期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
+                oMonth.append("<option value='0.04' data-cycle='12'>(12期)</option><option value='0.08' data-cycle='24'>(24期)</option><option value='0.115' data-cycle='36'>(36期)</option>");
             }
         });
     }

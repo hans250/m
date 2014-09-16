@@ -63,6 +63,7 @@
                                                 <option value="zx">中信银行</option>
                                                 <option value="js">建设银行</option>
                                                 <option value="gs">工商银行</option>
+                                                <option value="zg">中国银行</option>
                                                 <option value="pa">平安银行</option>
                                             </select>
                                         </span>
@@ -74,11 +75,11 @@
                                 <label for="lxzffs">
                                     <span class="tit tit-auto">利息支付方式</span>
                                 </label>
-                                <span class="value-box">
+                                <span class="value-box w70">
                                     <span class="hide-select-box">
                                         <span class="hide-select-inside">
                                             <select class="selwide" name="lxzffs" id="lxzffs">
-                                                <option>分摊收取</option>
+                                                <option value="ftsq">分摊收取</option>
                                             </select>
                                         </span>
                                     </span>
@@ -91,9 +92,9 @@
                                     <span class="hide-select-box">
                                         <span class="hide-select-inside">
                                             <select class="selwide change" name="yg" id="yg">
-                                                <option value="0.0588">（12期）</option>
-                                                <option value="0.1032">（24期）</option>
-                                                <option value="0.1440">（36期）</option>
+                                                <option value="0.0588" data-cycle="12">（12期）</option>
+                                                <option value="0.1032" data-cycle="24">（24期）</option>
+                                                <option value="0.144" data-cycle="36">（36期）</option>
                                             </select>
                                         </span>
                                     </span>
@@ -105,7 +106,7 @@
                             <li>
                                 <span class="tit">抵押服务费</span>
                                 <span class="value-box">
-                                    <b id="dyfw">1000</b>元
+                                    <b id="dyfw">90</b>元
                                 </span>
                             </li>
                         </ul>
@@ -118,7 +119,7 @@
                             <li>
                                 <span class="tit">购置税</span>
                                 <span class="value-box">
-                                    <b id="gzs">1000</b>元
+                                    <b id="gzs"></b>元
                                 </span>
                             </li>
                             <li>
@@ -133,7 +134,7 @@
                                     <span class="tit">上牌服务</span>
                                 </label>
                                 <span class="value-box">
-                                    <span class="hide-select-box" style="width:70%;">
+                                    <span class="hide-select-box w70">
                                         <span class="hide-select-inside">
                                             <select class="change" name="spfw" id="spfw">
                                                 <option value="1000">中规车1000</option>
