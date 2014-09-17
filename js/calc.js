@@ -523,7 +523,7 @@ $(function(){
             else{
                 dl.addClass('cur');
             }
-            if(dl.parents('#j-jzjp-select-normal').length==0)return;
+            if(dl.parents('#j-jzjp-select-normal').length==0){calc_get_height(this);return;}
             var ml=dl.parents('.calc-cons').offset().left-dl.find('dd').offset().left;
             var oml=dl.find('dd').css('margin-left');
             if(oml=='0px'){dl.find('dd').css({'margin-left':ml});}
