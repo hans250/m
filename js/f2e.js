@@ -8,6 +8,17 @@ function tab(tid, tidtag, bid, bidsib) {
     }).eq(0).trigger('click');
 };
 
+function shSwitch(obj){
+    $(obj).on("click",function(){
+        $(this).next().toggle();
+        if($(this).hasClass("cur")){
+            $(this).removeClass("cur");
+        }else{
+            $(this).addClass("cur");
+        };
+    });
+};
+
 //==============================================================custom==============================================================
 //导航栏悬停顶部
 $(function () {

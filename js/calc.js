@@ -2,13 +2,45 @@
 
 //初始css相关
 $(function(){
-    //absolute块赋予高度
-    $(".calc-blks").css("height",($(".calc-blk").eq(1).height() ));
     //4等分元素屏幕宽度
     $(".calc-blk").css("width",$(document).width());
+    $(".j-sh-switch").click(function(){
+        $(this).next().toggle();
+        if($(this).hasClass("j-sh-switch-cur")){
+            $(this).removeClass("j-sh-switch-cur");
+        }else{
+            $(this).addClass("j-sh-switch-cur");
+        };
+    });
 //    $(".cash").text("待定");
 });
-
+//冒泡排序
+function bubbleSort(arr){
+    var i=arr.length, j;
+    var tempExchangVal;
+    while(i>0){
+        for(j=0;j<i-1;j++){
+            if(arr[j]>arr[j+1]){
+                tempExchangVal = arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=tempExchangVal;
+            }
+        }
+        i--;
+    }
+    return arr;
+};
+//四屏高度取最高值
+function bigHei(){
+    var arrHei = [];
+    $(".calc-blk").each(function(){
+        arrHei.push($(this).height())
+    });
+    bubbleSort(arrHei);
+    //absolute块赋予高度
+    $(".calc-blks").css("height",arrHei[3]);
+};
+bigHei();
 //找到nav数组赋予点击功能
 $("#j-calc-nav-ul").find("li").each(function(i){
     $(this).click(function(){
@@ -214,18 +246,19 @@ $(function(){
             if($(this).hasClass("point2-dszzrx")){
                 $(".point2-dszzrx").siblings().find("#dszzrx").removeAttr("disabled");
                 $("#dszzrx-val").attr("data-value",$("#dszzrx-val").text());
-                $("#stage4-jbxz").append("<li class='c1'><span class='val'>￥<b id='s4-dszzrx-val'>" + $("#dszzrx-val").attr("data-value") + "</b></span><span class='tit'>第三者责任险</span></li>")
+                $("#stage4-jbxz").append("<li class='c1'><span class='val'>￥<b id='s4-dszzrx-val'>" + $("#dszzrx-val").attr("data-value") + "</b></span><span class='tit'>第三者责任险</span></li>");
             };
             //玻璃单独破碎险
             if($(this).hasClass("point2-blddpsx")){
                 $(".point2-blddpsx").siblings().find("#blddpsx").removeAttr("disabled");
                 $("#blddpsx-val").attr("data-value",$("#blddpsx-val").text());
-                $("#stage4-jbxz").append("<li class='c1'><span class='val'>￥<b id='s4-dszzrx-val'>" + $("#dszzrx-val").attr("data-value") + "</b></span><span class='tit'>第三者责任险</span></li>")
+                $("#stage4-fjxz").append("<li class='c2'><span class='val'>￥<b id='s4-blddpsx-val'>" + $("#blddpsx-val").attr("data-value") + "</b></span><span class='tit'>玻璃单独破碎险</span></li>");
             };
             //车身划痕损失险
             if($(this).hasClass("point2-cshhssx")){
                 $(".point2-cshhssx").siblings().find("#cshhssx").removeAttr("disabled");
                 $("#cshhssx-val").attr("data-value",$("#cshhssx-val").text());
+                $("#stage4-fjxz").append("<li class='c3'><span class='val'>￥<b id='s4-cshhssx-val'>" + $("#cshhssx-val").attr("data-value") + "</b></span><span class='tit'>车身划痕损失险</span></li>");
             };
         };
 
@@ -248,8 +281,15 @@ $(function(){
         $("#dkje-val").text(dkjeVal);
         //银行利率及利息金额
         var yhllVal = $("#yg").val();
-        var lxValue = (parseFloat(csjVal) * yhllVal).toFixed(0);
+        if($("#lxzffs").val() == "ftsq"){
+            var lxValue = (dkjeVal / $("#yg").find("option:selected").attr("data-cycle") + (dkjeVal * yhllVal) / $("#yg").find("option:selected").attr("data-cycle")).toFixed(0);
+        };
+        if($("#lxzffs").val()== "ycxsq"){
+            var lxValue = (dkjeVal / $("#yg").find("option:selected").attr("data-cycle") + (dkjeVal * yhllVal)).toFixed(0);
+        };
         $("#lxje-val").text(lxValue);
+        //购置税
+        $("#gzs").text((dkjeVal / (1 + 0.17) * 0.1).toFixed(0));
         //必要花费
         var byhfValue = parseFloat($("#gzs").text()) + parseFloat($("#jrfwf").text()) + parseFloat($("#spfw").val());
         $("#settle-byhf").text(byhfValue);
@@ -359,8 +399,10 @@ $(function(){
         //首付合计
         if($("#j-stage1-tab").find("li").eq(0).hasClass("cur")){
             $("#s4-all").text(parseFloat($("#s4-csj").text()) + parseFloat($("#s4-gzs").text()) + parseFloat($("#s4-jrfwf").text()) + parseFloat($("#s4-spfwf").text()) + parseFloat($("#s4-dyfwf").text()) + parseFloat($("#s4-bxje").text()));
+            $("#s4-tit").text("首付合计");
         }else{
             $("#s4-all").text(parseFloat($("#s4-csj").text()) + parseFloat($("#s4-gzs").text()) + parseFloat($("#s4-spfwf").text()) + parseFloat($("#s4-bxje").text()));
+            $("#s4-tit").text("购车合计");
         };
         $("#j-calc-nav-val4").text($("#s4-all").text());
     };
@@ -375,9 +417,9 @@ $(function(){
             //车辆损失险
             $("#clssx-val").text(566 + parseFloat($("#csj").val()) * 0.0135);
             //全车盗抢险
-            $("#qcdqx-val").text(120 + parseFloat($("#csj").val()) * 0.05);
+            $("#qcdqx-val").text(120 + parseFloat($("#csj").val()) * 0.005);
             //司机座位责任险
-            $("#sjzwzrx-val").text(10000 * 0.041);
+            $("#sjzwzrx-val").text(10000 * 0.0041);
         }else if(selectTxt == "(家用6座以上)"){
             $("#dszzrx").children().remove();
             $("#dszzrx").append("<option value='616'>(5万)</option><option value='869'>(10万)</option><option value='982'>(15万)</option><option value='1058' selected='selected'>(20万)</option><option value='1185'>(30万)</option><option value='1411'>(50万)</option><option value='1838'>(100万)</option>");
@@ -400,35 +442,37 @@ $(function(){
 //==========================================页面select表单选择逻辑，华丽丽的分割线 ヽ(●´∀`●)ﾉ==========================================
 $.extend({
     bankSelect: function (oBank, oMonth, oWay) {
-        oBank.click(function () {
+        oBank.change(function () {
             var val = $(this).val();
             oMonth.children().remove();
             oWay.children().remove();
             if (val == "xy") {
-                oMonth.append("<option value=''>(12期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
-                oWay.append("<option value=''>分摊收取</option>");
+                oMonth.append("<option value='0.0588' data-cycle='12'>(12期)</option><option value='0.1032' data-cycle='24'>(24期)</option><option value='0.144' data-cycle='36'>(36期)</option>");
+                oWay.append("<option value='ftsq'>分摊收取</option>");
             }else if(val == "zx"){
-                oMonth.append("<option value=''>(212期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
-                oWay.append("<option value=''>分摊收取/等额本息</option>");
+                oMonth.append("<option value='0.0896' data-cycle='12'>(12期)</option><option value='0.0896' data-cycle='12'>(24期)</option><option value='0.0896' data-cycle='12'>(36期)</option>");
+                oWay.append("<option value='ftsq'>分摊收取</option>");
             }else if(val == "js"){
-                oMonth.append("<option value=''>(312期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
-                oWay.append("<option value=''>一次性收取</option>");
+                oMonth.append("<option value='0' data-cycle='12'>(12期)</option><option value='0.072' data-cycle='24'>(24期)</option><option value='0.108' data-cycle='36'>(36期)</option>");
+                oWay.append("<option value='ycxsq'>一次性收取</option>");
             }else if(val == "gs"){
-                oMonth.append("<option value=''>(g12期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
-                oWay.append("<option value='ycx'>一次性收取</option><option value='ft'>分摊收取</option>");
+                oMonth.append("<option value='0.0358' data-cycle='12'>(12期)</option><option value='0.0705' data-cycle='24'>(24期)</option><option value='0.1043' data-cycle='36'>(36期)</option>");
+                oWay.append("<option value='ycxsq'>一次性收取</option>");
+            }else if(val == "zg"){
+                oWay.append("<option value='ycxsq'>一次性收取</option><option value='ftsq'>分摊收取</option>");
             }else if(val == "pa"){
-                oMonth.append("<option value=''>(512期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
-                oWay.append("<option value=''>分摊收取</option>");
-            }
+                oMonth.append("<option value='0.06' data-cycle='12'>(12期)</option><option value='0.12' data-cycle='24'>(24期)</option><option value='0.18' data-cycle='36'>(36期)</option>");
+                oWay.append("<option value='ftsq'>分摊收取</option>");
+            };
         });
-        oWay.click(function () {
+        oWay.change(function () {
             var val = $(this).val();
-            if (val == "ycx") {
+            if (val == "ycxsq") {
                 oMonth.children().remove();
-                oMonth.append("<option value=''>(z12期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
-            }else if(val == "ft"){
+                oMonth.append("<option value='0.035' data-cycle='12'>(12期)</option><option value='0.075' data-cycle='24'>(24期)</option><option value='0.11' data-cycle='36'>(36期)</option>");
+            }else if(val == "ftsq"){
                 oMonth.children().remove();
-                oMonth.append("<option value=''>(z212期)</option><option value=''>(24期)</option><option value=''>(36期)</option>");
+                oMonth.append("<option value='0.04' data-cycle='12'>(12期)</option><option value='0.08' data-cycle='24'>(24期)</option><option value='0.115' data-cycle='36'>(36期)</option>");
             }
         });
     }
