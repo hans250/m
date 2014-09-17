@@ -54,6 +54,7 @@ $("#j-calc-nav-ul").find("li").each(function(i){
             to4(i);
         };
         $("body,html").animate({scrollTop:0},500);
+        calc_get_height($('.calc-blk').eq(i));
     });
 });
 
@@ -487,14 +488,19 @@ $(function(){
     $('.jzjp-list').each(function(){
         $(this).find('li:last').addClass('last');
     });
+    $('#j-jzjp-tab li').click(function(){
+        calc_get_height(this);
+    });
     $('.jzjp-list li .point2,.calc-list-ul-jzjp-li .point2').bind('click',function(){
         //$(this).parents('li').siblings().find('.point2').removeClass('point2-cur');
         var jse=$('.point2-cur').parents('li');
         var total=getTotal($(jse).find('.price-final'));
         var html=getTaozhuang(jse,'.title');
-        $(jse).parents('.calc-con').find('.calc-settle').find('#stage1-p').html(html);
-        $(jse).parents('.calc-con').find('.calc-settle').find('.js .val').html(total);
+        if(html=='')html='暂无选择';
+        $(this).parents('.calc-con').find('.calc-settle #stage1-p').html(html);
+        $(this).parents('.calc-con').find('.calc-settle .js .val').html(total);
         getTotalALL();
+        calc_get_height(this);
     });
     $('.jzjp-select').each(function(){
         var jse=this;
@@ -517,12 +523,12 @@ $(function(){
             else{
                 dl.addClass('cur');
             }
-            if(dl.parents('#j-jzjp-select-normal').length==0)return;
+            if(dl.parents('#j-jzjp-select-normal').length==0){calc_get_height(this);return;}
             var ml=dl.parents('.calc-cons').offset().left-dl.find('dd').offset().left;
             var oml=dl.find('dd').css('margin-left');
             if(oml=='0px'){dl.find('dd').css({'margin-left':ml});}
             comput();
-            $('.calc-blks').css('height',$(this).parents('.calc-blk').height());
+            calc_get_height(this);
         });
         $(this).find('dl').each(function(){
             price_sum=getTotal($(this).find('.price-final'));
@@ -570,4 +576,8 @@ function calc_autosize(){
     }
     run();
     $(window).resize(run);
+}
+function calc_get_height(me){
+    obj=$(me).hasClass('calc-blk')?me:$(me).parents('.calc-blk');
+    $('.calc-blks').css('height',$(obj).height());
 }
