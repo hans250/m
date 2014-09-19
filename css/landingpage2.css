@@ -1079,8 +1079,46 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
     .to-usintro{ width:640px;}
     .saleintro-box img{ width:640px;}
 }
-
-
+.choujiang-box dl{clear: both; margin-top: 10px; overflow: hidden;}
+.choujiang-box dt{float: right;background: #efefef; border-left: dashed 1px #e0e0e0;padding:30px 20px; width: 12px;}
+.choujiang-box dd{ padding:0 10px;}
+.choujiang-box li div.red{ padding:5px 0px; font-size: 1.2em;}
+.choujiang-box li p{ overflow: hidden;}
+.zhongjiang-bar{ color:#f58981; font-size: 14px; border-bottom: solid 1px #f58981;}
+.zhongjiang-bar .f-broadcast{ font-size:18px;}
+.zhongjiang-list{background:#ffefee url(../images/bg4.png) right top no-repeat; line-height: 28px; padding:0 10px 10px; background-size:30% auto;}
+.zhongjiang-list ul{ margin-top: 5px; padding: 0 10px;}
+.qiangche-a-box dd{color: #666; overflow: hidden;}
+.qiangche-a-box footer{ background: #292929; margin-top: 30px; padding: 10px 0 10px 10px; color: #636363; position: relative;}
+.qiangche-a-box footer .totop{ display: inline-block; margin-top: 20px; color: #fff; background: #414141; border-radius: 40px 0 0 40px; padding: 5px 10px 5px 5px; height: 40px; }
+.qiangche-a-box footer .totop .radius{display: inline-block; border-radius: 40px; font-weight: normal; text-align: center; color: #f00; width: 40px; height: 40px; line-height: 40px; background: #fff; margin-right: 5px; }
+.qiangche-bar-a{background:#efefef; border-left:solid 5px #c71a1a; padding: 10px;}
+.qiangche-huodong{ padding: 10px;}
+.qiangche-huodong-div{ line-height: 24px; overflow: hidden;}
+.qiangche-huodong-div.open{ height: auto;}
+.qiangche-huodong-div.close{ height: 120px;}
+.qiangche-huodong .fr img{ vertical-align:middle;}
+.qiangche-more{color:#c71a1a; padding:0 10px;  overflow: hidden;}
+.qiangche-more dt{ padding: 10px 5px; border-bottom:solid 1px #e3e3e3;}
+.qiangche-more li{ border-bottom: dashed 1px #ccc; padding: 10px;}
+.qiangche-icon-logo{ border-radius: 5px; border:solid 1px #e0e0e0; margin: 30px 10px 0; overflow: hidden; }
+.qiangche-icon-logo li{ border-left:solid 1px #efefef; float: left; width: 33%; padding: 10px 0; text-align: center;}
+.qiangche-icon-logo li img{ height: 30px; margin:10px 0 10px;}
+.qiangche-icon-logo li a{ color: #000;}
+.car-list-a li{ cursor: pointer;  color: #000; margin: 10px; padding: 10px; border-radius: 5px; border:solid 1px #e3e3e3; overflow: hidden; }
+.car-list-a li p{ padding: 10px 0;}
+.car-list-a li .fr{ margin-top: 5px;}
+.car-list-a li .xsj{ background: #c71a1a; color: #fff; border-radius: 2px; padding: 0 5px;}
+.car-list-a li .gray{ color: #ccc;}
+.car-list-a li .link{ display: inline-block; background: #c71a1a; color: #fff; border-radius: 2px; padding: 0 20px; height: 36px; line-height: 36px;}
+.car-list-a li .link b{ display: inline-block; vertical-align: middle;}
+.qiangche-a-box footer .totop .radius{
+	transform:rotate(90deg);
+	-ms-transform:rotate(90deg); 	/* IE 9 */
+	-moz-transform:rotate(90deg); 	/* Firefox */
+	-webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+	-o-transform:rotate(90deg); 	/* Opera */ 
+}
 /*
  查找下pgyxj 是否结构已经清除
 border line 统一颜色#eee
