@@ -358,7 +358,7 @@ $(function(){
         };
         $("#lxje-val").text(lxValue);
         //购置税
-        $("#gzs").text((dkjeVal / (1 + 0.17) * 0.1).toFixed(0));
+        $("#gzs").text((csjVal / (1 + 0.17) * 0.1).toFixed(0));
         //必要花费
         var byhfValue = parseFloat($("#gzs").text()) + parseFloat($("#jrfwf").text()) + parseFloat($("#spfw").val());
         $("#settle-byhf").text(byhfValue);
@@ -370,6 +370,8 @@ $(function(){
         //车身价
         var sfValue2 = $("#csj2").val();
         var byhfValue2 = parseFloat($("#gzs2").text()) + parseFloat($("#spfw2").val());
+        //购置税
+        $("#gzs2").text((sfValue2 / (1 + 0.17) * 0.1).toFixed(0));
 
         //第二屏
         //初始化
@@ -396,9 +398,9 @@ $(function(){
         };
         $("#s4-dszzrx-val").text($("#dszzrx-val").attr("data-value"));
         //乘客座位责任险
-        $("#ckzwzrx-val").text(10000 * 0.026);
+        $("#ckzwzrx-val").text(10000 * 0.0026);
         //不计免赔险
-        $("#bjmpx-val").text(((parseFloat(taxTmp[0]) + parseFloat($("#dszzrx-val").text()) + parseFloat(taxTmp[1]) + parseFloat($("#ckzwzrx-val").text())) * 0.15 + parseFloat(taxTmp[2]) * 0.2).toFixed(0));
+        bjmpx_run();
         //自燃损失险
         $("#zrssx-val").text(($("#csj").val() * 0.0012).toFixed(0));
         //玻璃单独破碎险
@@ -473,17 +475,18 @@ $(function(){
             //车辆损失险
             $("#clssx-val").text(679 + parseFloat($("#csj").val()) * 0.0135);
             //全车盗抢险
-            $("#qcdqx-val").text(140 + parseFloat($("#csj").val()) * 0.045);
+            $("#qcdqx-val").text(140 + parseFloat($("#csj").val()) * 0.0045);
             //司机座位责任险
-            $("#sjzwzrx-val").text(10000 * 0.04);
+            $("#sjzwzrx-val").text(10000 * 0.004);
         };
         taxTmp[0] = $("#clssx-val").text();
         taxTmp[1] = $("#sjzwzrx-val").text();
         taxTmp[2] = $("#qcdqx-val").text();
+        bjmpx_run();
     };
-
-
-
+    function bjmpx_run(){
+        $("#bjmpx-val").text(((parseFloat(taxTmp[0]) + parseFloat($("#dszzrx-val").text()) + parseFloat(taxTmp[1]) + parseFloat($("#ckzwzrx-val").text())) * 0.15 + parseFloat(taxTmp[2]) * 0.2).toFixed(0));
+    }
 });
 
 
