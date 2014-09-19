@@ -99,12 +99,55 @@ function to4(i){
     $("#j-calc-nav-ul").find("li").eq(i).addClass("cur");
 };
 
+//==========================================页面select表单选择逻辑，华丽丽的分割线 ヽ(●´∀`●)ﾉ==========================================
+$.extend({
+    bankSelect: function (oBank, oMonth, oWay) {
+        oBank.change(function () {
+            var val = $(this).val();
+            oMonth.children().remove();
+            oWay.children().remove();
+            if (val == "xy") {
+                oMonth.append("<option value='0.0588' data-cycle='12'>(12期)</option><option value='0.1032' data-cycle='24'>(24期)</option><option value='0.144' data-cycle='36'>(36期)</option>");
+                oWay.append("<option value='ftsq'>分摊收取</option>");
+            }else if(val == "zx"){
+                oMonth.append("<option value='0.0896' data-cycle='12'>(12期)</option><option value='0.0896' data-cycle='24'>(24期)</option><option value='0.0896' data-cycle='36'>(36期)</option>");
+                oWay.append("<option value='ftsq'>分摊收取</option>");
+            }else if(val == "js"){
+             oMonth.append("<option value='0' data-cycle='12'>(12期)</option><option value='0.072' data-cycle='24'>(24期)</option><option value='0.108' data-cycle='36'>(36期)</option>");
+             oWay.append("<option value='ycxsq'>一次性收取</option>");
+             }else if(val == "gs"){
+             oMonth.append("<option value='0.0358' data-cycle='12'>(12期)</option><option value='0.0705' data-cycle='24'>(24期)</option><option value='0.1043' data-cycle='36'>(36期)</option>");
+             oWay.append("<option value='ycxsq'>一次性收取</option>");
+             }else if(val == "zg"){
+            oMonth.append("<option value='0.035' data-cycle='12'>(12期)</option><option value='0.035' data-cycle='24'>(24期)</option><option value='0.11' data-cycle='36'>(36期)</option>");
+             oWay.append("<option value='ycxsq'>一次性收取</option><option value='ftsq'>分摊收取</option>");
+             }else if(val == "pa"){
+             oMonth.append("<option value='0.06' data-cycle='12'>(12期)</option><option value='0.12' data-cycle='24'>(24期)</option><option value='0.18' data-cycle='36'>(36期)</option>");
+             oWay.append("<option value='ftsq'>分摊收取</option>");
+             };
+        });
+        oWay.change(function () {
+            var val = $(this).val();
+            if (val == "ycxsq") {
+                oMonth.children().remove();
+                oMonth.append("<option value='0.035' data-cycle='12'>(12期)</option><option value='0.035' data-cycle='24'>(24期)</option><option value='0.11' data-cycle='36'>(36期)</option>");
+            }else if(val == "ftsq"){
+                oMonth.children().remove();
+                oMonth.append("<option value='0.04' data-cycle='12'>(12期)</option><option value='0.08' data-cycle='24'>(24期)</option><option value='0.115' data-cycle='36'>(36期)</option>");
+            }
+        });
+    }
+});
+$(function() {
+    $.bankSelect($("#xzyh"),$("#yg"),$("#lxzffs"));
+});
+
 //==========================================计算逻辑，华丽丽的分割线 ヽ(●´∀`●)ﾉ==========================================
 taxTmp = [];
 $(function(){
     six();
     add();
-    $(".change").change(function(){
+    $(".change").on("change",function(){
         add();
     });
     $("#j-stage1-tab").find("li").each(function(){
@@ -271,37 +314,6 @@ $(function(){
     });
 
     function add(){
-        //车身价
-        var csjVal = $("#csj").val();
-        //首付款
-        var sfkVal = $("#sfk").val();
-        var sfValue = (csjVal * sfkVal).toFixed(0);
-        $("#sfk-val").text(sfValue);
-        //贷款金额
-        var dkjeVal = csjVal - sfValue;
-        $("#dkje-val").text(dkjeVal);
-        //银行利率及利息金额
-        var yhllVal = $("#yg").val();
-        if($("#lxzffs").val() == "ftsq"){
-            var lxValue = (dkjeVal / $("#yg").find("option:selected").attr("data-cycle") + (dkjeVal * yhllVal) / $("#yg").find("option:selected").attr("data-cycle")).toFixed(0);
-        };
-        if($("#lxzffs").val()== "ycxsq"){
-            var lxValue = (dkjeVal / $("#yg").find("option:selected").attr("data-cycle") + (dkjeVal * yhllVal)).toFixed(0);
-        };
-        $("#lxje-val").text(lxValue);
-        //购置税
-        $("#gzs").text((dkjeVal / (1 + 0.17) * 0.1).toFixed(0));
-        //必要花费
-        var byhfValue = parseFloat($("#gzs").text()) + parseFloat($("#jrfwf").text()) + parseFloat($("#spfw").val());
-        $("#settle-byhf").text(byhfValue);
-
-        //全款
-        //必要花费
-        var byhfValue2 = parseFloat($("#gzs2").text()) + parseFloat($("#spfw2").val());
-        $("#settle-byhf2").text(byhfValue2);
-        //车身价
-        var sfValue2 = $("#csj2").val();
-        var byhfValue2 = parseFloat($("#gzs2").text()) + parseFloat($("#spfw2").val());
 
         //文案类别变更
         function tabSelect(){
@@ -324,6 +336,40 @@ $(function(){
             };
         };
         tabSelect();
+
+        //车身价
+        var csjVal = $("#csj").val();
+        //首付款
+        var sfkVal = $("#sfk").val();
+        var sfValue = (csjVal * sfkVal).toFixed(0);
+        $("#sfk-val").text(sfValue);
+        //贷款金额
+        var dkjeVal = csjVal - sfValue;
+        $("#dkje-val").text(dkjeVal);
+        //银行利率及利息金额
+        var yhllVal = $("#yg").val();
+        if($("#lxzffs").val() == "ftsq"){
+            var lxValue = (dkjeVal * (1 + parseFloat(yhllVal)) / $("#yg").find("option:selected").attr("data-cycle")).toFixed(0);
+        };
+        if($("#lxzffs").val() == "ycxsq"){
+            var lxValue = (dkjeVal / $("#yg").find("option:selected").attr("data-cycle")).toFixed(0);
+            var ycxLxValue = (dkjeVal * yhllVal).toFixed(0);
+            $("#stage1-p").append("<span>，贷款利息一次性支付：" + ycxLxValue + "元</span>")
+        };
+        $("#lxje-val").text(lxValue);
+        //购置税
+        $("#gzs").text((dkjeVal / (1 + 0.17) * 0.1).toFixed(0));
+        //必要花费
+        var byhfValue = parseFloat($("#gzs").text()) + parseFloat($("#jrfwf").text()) + parseFloat($("#spfw").val());
+        $("#settle-byhf").text(byhfValue);
+
+        //全款
+        //必要花费
+        var byhfValue2 = parseFloat($("#gzs2").text()) + parseFloat($("#spfw2").val());
+        $("#settle-byhf2").text(byhfValue2);
+        //车身价
+        var sfValue2 = $("#csj2").val();
+        var byhfValue2 = parseFloat($("#gzs2").text()) + parseFloat($("#spfw2").val());
 
         //第二屏
         //初始化
@@ -440,47 +486,6 @@ $(function(){
 
 });
 
-//==========================================页面select表单选择逻辑，华丽丽的分割线 ヽ(●´∀`●)ﾉ==========================================
-$.extend({
-    bankSelect: function (oBank, oMonth, oWay) {
-        oBank.change(function () {
-            var val = $(this).val();
-            oMonth.children().remove();
-            oWay.children().remove();
-            if (val == "xy") {
-                oMonth.append("<option value='0.0588' data-cycle='12'>(12期)</option><option value='0.1032' data-cycle='24'>(24期)</option><option value='0.144' data-cycle='36'>(36期)</option>");
-                oWay.append("<option value='ftsq'>分摊收取</option>");
-            }else if(val == "zx"){
-                oMonth.append("<option value='0.0896' data-cycle='12'>(12期)</option><option value='0.0896' data-cycle='12'>(24期)</option><option value='0.0896' data-cycle='12'>(36期)</option>");
-                oWay.append("<option value='ftsq'>分摊收取</option>");
-            }else if(val == "js"){
-                oMonth.append("<option value='0' data-cycle='12'>(12期)</option><option value='0.072' data-cycle='24'>(24期)</option><option value='0.108' data-cycle='36'>(36期)</option>");
-                oWay.append("<option value='ycxsq'>一次性收取</option>");
-            }else if(val == "gs"){
-                oMonth.append("<option value='0.0358' data-cycle='12'>(12期)</option><option value='0.0705' data-cycle='24'>(24期)</option><option value='0.1043' data-cycle='36'>(36期)</option>");
-                oWay.append("<option value='ycxsq'>一次性收取</option>");
-            }else if(val == "zg"){
-                oWay.append("<option value='ycxsq'>一次性收取</option><option value='ftsq'>分摊收取</option>");
-            }else if(val == "pa"){
-                oMonth.append("<option value='0.06' data-cycle='12'>(12期)</option><option value='0.12' data-cycle='24'>(24期)</option><option value='0.18' data-cycle='36'>(36期)</option>");
-                oWay.append("<option value='ftsq'>分摊收取</option>");
-            };
-        });
-        oWay.change(function () {
-            var val = $(this).val();
-            if (val == "ycxsq") {
-                oMonth.children().remove();
-                oMonth.append("<option value='0.035' data-cycle='12'>(12期)</option><option value='0.075' data-cycle='24'>(24期)</option><option value='0.11' data-cycle='36'>(36期)</option>");
-            }else if(val == "ftsq"){
-                oMonth.children().remove();
-                oMonth.append("<option value='0.04' data-cycle='12'>(12期)</option><option value='0.08' data-cycle='24'>(24期)</option><option value='0.115' data-cycle='36'>(36期)</option>");
-            }
-        });
-    }
-});
-$(function() {
-    $.bankSelect($("#xzyh"),$("#yg"),$("#lxzffs"));
-});
 
 //stage3
 $(function(){

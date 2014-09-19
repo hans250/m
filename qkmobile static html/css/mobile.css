@@ -1,0 +1,96 @@
+/*
+Syntax error: Colors must have either three or six digits: '#f'
+        on line 19 of mobile\page-content.scss
+        from line 7 of mobile.scss
+
+14: .conbox .val-box li .mg-baoguan{ color:#febc02;}
+15: .ico-ykj, .corbox .ico-ykj, .ico-xsth{ float:left; width:28px; height:14px; line-height:14px; background:#ec131c; border-radius:10px; color:#fff; font-size:.6em; text-align:center; font-weight:bold ; margin:5px 2px 0;}
+16: .corbox .ico-ykj{ margin-top:9px;}
+17: .ico-xsth{ background:#fea203;}
+18: .mgc-border{ float:left; height:20px; line-height:20px; border:1px solid #e3121a; border-radius:3px; margin:6px 0 0 10px;}
+19: .mgc-border-yellow{ border-color:#f.ico-ykj, .corboxea203;}
+20: .mgc-border-gray{ border-color:#ccc; color:#999; padding:0 10px;}
+21: .mgc-border .cla{ float:left; background:#e3121a; color:#fff; padding:0 10px;}
+22: .mgc-border-yellow .cla{ background:#fea203;}
+23: .mgc-border i, .mgc-border-yellow i{ float:left; width:5px; height:20px; overflow:hidden; background:url(../images/ico31.png) no-repeat; background-size:100%;}
+24: .mgc-border-yellow i{ background-image:url(../images/ico32.png);}
+
+Backtrace:
+mobile\page-content.scss:19
+mobile.scss:7
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/lexer.rb:322:in `color'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/lexer.rb:253:in `token'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/lexer.rb:236:in `read_token'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/lexer.rb:182:in `peek'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:589:in `try_tok'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:240:in `unary_plus'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:221:in `times_div_or_mod'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:221:in `plus_or_minus'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:221:in `relational'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:221:in `eq_or_neq'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:221:in `and_expr'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:221:in `or_expr'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:354:in `space'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:339:in `interpolation'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:287:in `expr'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:569:in `assert_expr'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/script/parser.rb:56:in `parse'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:1170:in `sass_script'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:1018:in `value!'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:980:in `declaration'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:683:in `block in declaration_or_ruleset'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:1282:in `call'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:1282:in `rethrow'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:693:in `declaration_or_ruleset'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:655:in `block_child'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:644:in `block_contents'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:636:in `block'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:630:in `ruleset'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:654:in `block_child'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:647:in `block_contents'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:116:in `stylesheet'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/scss/parser.rb:41:in `parse'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/engine.rb:409:in `_to_tree'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/engine.rb:305:in `to_tree'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:295:in `block in visit_import'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/stack.rb:88:in `block in with_import'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/stack.rb:121:in `with_frame'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/stack.rb:88:in `with_import'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:294:in `visit_import'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/stack.rb:79:in `block in with_base'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/stack.rb:121:in `with_frame'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/stack.rb:79:in `with_base'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:152:in `visit'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:52:in `map'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:151:in `visit'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:8:in `visit'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/root_node.rb:36:in `css_tree'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/tree/root_node.rb:20:in `render'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/engine.rb:274:in `render'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/plugin/compiler.rb:414:in `update_stylesheet'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/plugin/compiler.rb:186:in `each'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/plugin.rb:82:in `update_stylesheets'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/exec.rb:489:in `watch_or_update'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/exec.rb:346:in `process_result'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/exec.rb:43:in `parse'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/lib/sass/exec.rb:22:in `parse!'
+d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.5/bin/scss:13:in `<top (required)>'
+d:/RailsInstaller/Ruby1.9.3/bin/scss:23:in `load'
+d:/RailsInstaller/Ruby1.9.3/bin/scss:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Colors must have either three or six digits: '#f'\A         on line 19 of mobile\page-content.scss\A         from line 7 of mobile.scss\A \A 14: .conbox .val-box li .mg-baoguan{ color:#febc02;}\A 15: .ico-ykj, .corbox .ico-ykj, .ico-xsth{ float:left; width:28px; height:14px; line-height:14px; background:#ec131c; border-radius:10px; color:#fff; font-size:.6em; text-align:center; font-weight:bold ; margin:5px 2px 0;}\A 16: .corbox .ico-ykj{ margin-top:9px;}\A 17: .ico-xsth{ background:#fea203;}\A 18: .mgc-border{ float:left; height:20px; line-height:20px; border:1px solid #e3121a; border-radius:3px; margin:6px 0 0 10px;}\A 19: .mgc-border-yellow{ border-color:#f.ico-ykj, .corboxea203;}\A 20: .mgc-border-gray{ border-color:#ccc; color:#999; padding:0 10px;}\A 21: .mgc-border .cla{ float:left; background:#e3121a; color:#fff; padding:0 10px;}\A 22: .mgc-border-yellow .cla{ background:#fea203;}\A 23: .mgc-border i, .mgc-border-yellow i{ float:left; width:5px; height:20px; overflow:hidden; background:url(../images/ico31.png) no-repeat; background-size:100%;}\A 24: .mgc-border-yellow i{ background-image:url(../images/ico32.png);}"; }

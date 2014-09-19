@@ -149,7 +149,7 @@ $(function(){
         $("#j-popup-v2-fast").hide();
     });
 })
-$(".popup-ab").css("height",$(document).height());
+/*$(".popup-ab").css("height",$(document).height());
 $(".btn-baoming").click(function(){
     $("#j-popup-v2-static").show();
     $("#j-popup-v2-inside-static").css("top",$(document).scrollTop() + 50);
@@ -160,7 +160,44 @@ $(function(){
      $("#j-popup-v2-static").hide();
      return false;
     });
+});*/
+
+//报名动画效果
+$(function(){
+    var tmpColor = 0;
+    $(".color-select-circle").on("click",function(){
+        if(tmpColor == 0){
+            $(".color-select-pulldown").slideDown("fast");
+            tmpColor = 1;
+        }else{
+            $(".color-select-pulldown").slideUp("fast");
+            tmpColor = 0;
+        }
+    });
+    $(".color-select-pulldown").find("li").each(function(){
+        $(this).click(function(){
+            var colorSelectText = "您已选中了：";
+            $("#color-tit").text (colorSelectText + $(this).attr("data-color"));
+            $(".color-select-pulldown").slideUp("fast");
+            tmpColor = 0;
+        });
+    });
 });
+
+function newbaoming(){
+    $(".popup-v2a").show();
+    var insideHei = $(".popup-v2a-inside").height();
+    $(".popup-v2a-inside").css("bottom",-insideHei).animate({
+        bottom:"0"
+    },200);
+    $(".popup-v2a").find(".f-close").click(function(){
+        $(".popup-v2a-inside").animate({
+            bottom:-insideHei
+        },300);
+        setTimeout("$('.popup-v2a').hide()",400);
+    });
+};
+
 //排序
 $(function(){
     var tmp = 0;

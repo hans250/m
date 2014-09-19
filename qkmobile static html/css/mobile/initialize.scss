@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,a{ margin:0; padding:0;}
+body,button,input,select,textarea,td{ font-size:14px; line-height:20px; font-family:sans-serif;}
+ul,ol{ list-style:none;}
+/*input{ -webkit-appearance:none;}*/
+table{ border-collapse:collapse;}
+a{ text-decoration:none;}
+.clearfix:after{ content:""; height:0; visibility:hidden; display:block; clear:both;}
+.clearfix{ zoom:1;}
+.clear{ clear:both;}
+.of{ overflow:hidden; zoom:1;}
+.fl{ float:left!important;}
+.fr{ float:right!important;}
+.mt10{ margin-top:10px!important;}
+.mt20{ margin-top:20px!important;}
+.mb30{ margin-bottom:30px!important;}
+.center{ text-align:center!important;}
+.centerwm{ text-align:center!important; font-size:.8em; line-height:15px; color:#898989; margin-top:15px;}
+.centerwmgo{ text-align:left!important; font-size:1em; color:#898989;}
+@font-face{ font-family:'qk'; font-weight:normal; font-style:normal; src:url(../font/icomoon.woff) format('woff');}
+[class^='f-']{ font-family:qk; font-style:normal; -webkit-font-smoothing:antialiased;}

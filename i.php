@@ -45,7 +45,8 @@ $urls = array(
   'find2'=>'http://172.16.85.120/1/m/find2.html',
   'find3'=>'http://172.16.85.120/1/m/find3.html',*/
   // 'map'=>'http://172.16.85.120/1/m/map.html',
-  'calc'=>'http://172.16.85.120/1/m/calc.html',
+  // 'calc'=>'http://172.16.85.120/1/m/calc.html',
+  'orderprogress'=>'http://172.16.85.120/1/m/orderprogress.html',
 );
 
 if(is_array($urls))
