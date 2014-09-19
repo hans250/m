@@ -1105,14 +1105,13 @@ body{ padding-bottom:50px; -webkit-text-size-adjust:none;}
 .qiangche-icon-logo li{ border-left:solid 1px #efefef; float: left; width: 33%; padding: 10px 0; text-align: center;}
 .qiangche-icon-logo li img{ height: 30px; margin:10px 0 10px;}
 .qiangche-icon-logo li a{ color: #000;}
-.car-list-a li{color: #000; margin: 10px; padding: 10px; border-radius: 5px; border:solid 1px #e3e3e3; overflow: hidden; }
+.car-list-a li{ cursor: pointer;  color: #000; margin: 10px; padding: 10px; border-radius: 5px; border:solid 1px #e3e3e3; overflow: hidden; }
 .car-list-a li p{ padding: 10px 0;}
 .car-list-a li .fr{ margin-top: 5px;}
 .car-list-a li .xsj{ background: #c71a1a; color: #fff; border-radius: 2px; padding: 0 5px;}
 .car-list-a li .gray{ color: #ccc;}
 .car-list-a li .link{ display: inline-block; background: #c71a1a; color: #fff; border-radius: 2px; padding: 0 20px; height: 36px; line-height: 36px;}
 .car-list-a li .link b{ display: inline-block; vertical-align: middle;}
-
 .qiangche-a-box footer .totop .radius{
 	transform:rotate(90deg);
 	-ms-transform:rotate(90deg); 	/* IE 9 */
