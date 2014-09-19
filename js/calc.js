@@ -131,11 +131,9 @@ $.extend({
             if (val == "ycxsq") {
                 oMonth.children().remove();
                 oMonth.append("<option value='0.035' data-cycle='12'>(12期)</option><option value='0.035' data-cycle='24'>(24期)</option><option value='0.11' data-cycle='36'>(36期)</option>");
-                alert("1")
             }else if(val == "ftsq"){
                 oMonth.children().remove();
                 oMonth.append("<option value='0.04' data-cycle='12'>(12期)</option><option value='0.08' data-cycle='24'>(24期)</option><option value='0.115' data-cycle='36'>(36期)</option>");
-                alert("f")
             }
         });
     }
@@ -316,40 +314,6 @@ $(function(){
     });
 
     function add(){
-        //车身价
-        var csjVal = $("#csj").val();
-        //首付款
-        var sfkVal = $("#sfk").val();
-        var sfValue = (csjVal * sfkVal).toFixed(0);
-        $("#sfk-val").text(sfValue);
-        //贷款金额
-        var dkjeVal = csjVal - sfValue;
-        $("#dkje-val").text(dkjeVal);
-        //银行利率及利息金额
-        var yhllVal = $("#yg").val();
-        if($("#lxzffs").val() == "ftsq"){
-            /*var lxValue = (dkjeVal / $("#yg").find("option:selected").attr("data-cycle") + (dkjeVal * yhllVal) / $("#yg").find("option:selected").attr("data-cycle")).toFixed(0);*/
-            var lxValue = (dkjeVal * (1 + parseFloat(yhllVal)) / $("#yg").find("option:selected").attr("data-cycle")).toFixed(0);
-            console.log(dkjeVal +"_"+ $("#yg").find("option:selected").attr("data-cycle") +"_"+ yhllVal);
-        };
-        if($("#lxzffs").val() == "ycxsq"){
-            var lxValue = (dkjeVal / $("#yg").find("option:selected").attr("data-cycle") + (dkjeVal * yhllVal)).toFixed(0);
-            console.log(dkjeVal +"_"+ $("#yg").find("option:selected").attr("data-cycle") +"_"+ (yhllVal));
-        };
-        $("#lxje-val").text(lxValue);
-        //购置税
-        $("#gzs").text((dkjeVal / (1 + 0.17) * 0.1).toFixed(0));
-        //必要花费
-        var byhfValue = parseFloat($("#gzs").text()) + parseFloat($("#jrfwf").text()) + parseFloat($("#spfw").val());
-        $("#settle-byhf").text(byhfValue);
-
-        //全款
-        //必要花费
-        var byhfValue2 = parseFloat($("#gzs2").text()) + parseFloat($("#spfw2").val());
-        $("#settle-byhf2").text(byhfValue2);
-        //车身价
-        var sfValue2 = $("#csj2").val();
-        var byhfValue2 = parseFloat($("#gzs2").text()) + parseFloat($("#spfw2").val());
 
         //文案类别变更
         function tabSelect(){
@@ -372,6 +336,40 @@ $(function(){
             };
         };
         tabSelect();
+
+        //车身价
+        var csjVal = $("#csj").val();
+        //首付款
+        var sfkVal = $("#sfk").val();
+        var sfValue = (csjVal * sfkVal).toFixed(0);
+        $("#sfk-val").text(sfValue);
+        //贷款金额
+        var dkjeVal = csjVal - sfValue;
+        $("#dkje-val").text(dkjeVal);
+        //银行利率及利息金额
+        var yhllVal = $("#yg").val();
+        if($("#lxzffs").val() == "ftsq"){
+            var lxValue = (dkjeVal * (1 + parseFloat(yhllVal)) / $("#yg").find("option:selected").attr("data-cycle")).toFixed(0);
+        };
+        if($("#lxzffs").val() == "ycxsq"){
+            var lxValue = (dkjeVal / $("#yg").find("option:selected").attr("data-cycle")).toFixed(0);
+            var ycxLxValue = (dkjeVal * yhllVal).toFixed(0);
+            $("#stage1-p").append("<span>，贷款利息一次性支付：" + ycxLxValue + "元</span>")
+        };
+        $("#lxje-val").text(lxValue);
+        //购置税
+        $("#gzs").text((dkjeVal / (1 + 0.17) * 0.1).toFixed(0));
+        //必要花费
+        var byhfValue = parseFloat($("#gzs").text()) + parseFloat($("#jrfwf").text()) + parseFloat($("#spfw").val());
+        $("#settle-byhf").text(byhfValue);
+
+        //全款
+        //必要花费
+        var byhfValue2 = parseFloat($("#gzs2").text()) + parseFloat($("#spfw2").val());
+        $("#settle-byhf2").text(byhfValue2);
+        //车身价
+        var sfValue2 = $("#csj2").val();
+        var byhfValue2 = parseFloat($("#gzs2").text()) + parseFloat($("#spfw2").val());
 
         //第二屏
         //初始化
